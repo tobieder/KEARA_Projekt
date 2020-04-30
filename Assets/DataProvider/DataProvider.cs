@@ -43,7 +43,7 @@ namespace DataProvider
 
         private Data dJSONData;
 
-        public void Awake()
+        public void OnEnable()
         {
             Debug.Log(tInputFile.ToString());
             dJSONData = JsonUtility.FromJson<Data>(tInputFile.ToString());
@@ -52,12 +52,14 @@ namespace DataProvider
 
         public UserData FindUserById(string id)
         {
-            return dJSONData.loginData.Where(t => t.id.Equals(id)).FirstOrDefault(null);
+            Debug.Log(id);
+            return dJSONData.loginData.FirstOrDefault(t => t.id.Equals(id));
         }
 
         public PackageData FindPackageById(string id)
         {
-            return dJSONData.packageData.Where(t => t.id.Equals(id)).FirstOrDefault(null);
+            Debug.Log(id);
+            return dJSONData.packageData.FirstOrDefault(t => t.id.Equals(id));
         }
     }
 }
