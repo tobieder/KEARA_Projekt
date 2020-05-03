@@ -9,6 +9,12 @@
     {
       "id": "qwertz1234",
       "weight": 12.3,
+      "tourId": "tour123"
+    }
+  ],
+  "tourData": [
+    {
+      "id": "tour123",
       "destination": {
         "street": "Musterstraße",
         "number": "24b",
