@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2D348FEA-B157-A0D5-0DD8-D6F9CCD5AB6A}</ProjectGuid>
+    <ProjectGuid>{FB4C6DFF-AE08-50E3-96A2-807253876E7B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Microsoft.MixedReality.Toolkit.Demos.InspectorFields.Inspectors</AssemblyName>
@@ -66,16 +66,16 @@
     <Compile Include="Assets\MixedRealityToolkit.Examples\Demos\Utilities\InspectorFields\Inspectors\AssemblyInfo.cs" />
     <Compile Include="Assets\MixedRealityToolkit.Examples\Demos\Utilities\InspectorFields\Inspectors\InspectorFieldsExampleInspector.cs" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -270,7 +270,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -629,15 +629,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.csproj">
-      <Project>{93FC38E7-4E1F-43DA-083F-DD4BAD60AD60}</Project>
+      <Project>{4E083D42-F796-D5DC-324B-CC73FC7BEDEA}</Project>
       <Name>Microsoft.MixedReality.Toolkit</Name>
     </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Editor.Inspectors.csproj">
-      <Project>{7CAF97FF-DEE6-6DCB-97A0-8260C0D423B0}</Project>
+      <Project>{61774FFC-EFFE-4E58-0B5C-1C0957A7B5CC}</Project>
       <Name>Microsoft.MixedReality.Toolkit.Editor.Inspectors</Name>
     </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.InspectorFields.csproj">
-      <Project>{F1892DA2-A433-F221-60CA-1C8FD17F1EF3}</Project>
+      <Project>{0B6DDE52-5216-40C6-CE34-857F4D691B98}</Project>
       <Name>Microsoft.MixedReality.Toolkit.Demos.InspectorFields</Name>
     </ProjectReference>
   </ItemGroup>

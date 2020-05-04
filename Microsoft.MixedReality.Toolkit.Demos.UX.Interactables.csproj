@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{008071AE-8B47-E7FE-7692-BDCACBD9770D}</ProjectGuid>
+    <ProjectGuid>{01732E80-1DE4-AA15-BF99-4B64E2D0D3C7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Microsoft.MixedReality.Toolkit.Demos.UX.Interactables</AssemblyName>
@@ -66,10 +66,10 @@
     <Compile Include="Assets\MixedRealityToolkit.Examples\Demos\UX\Interactables\AssemblyInfo.cs" />
     <Compile Include="Assets\MixedRealityToolkit.Examples\Demos\UX\Interactables\Scripts\CustomInteractablesReceiver.cs" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -614,15 +614,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.SDK.csproj">
-      <Project>{49448E83-9FE9-08A0-04D0-CCD8FBAEDB59}</Project>
+      <Project>{DDC4564B-B5DA-1A62-4661-4F056B39A6CC}</Project>
       <Name>Microsoft.MixedReality.Toolkit.SDK</Name>
     </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.csproj">
-      <Project>{93FC38E7-4E1F-43DA-083F-DD4BAD60AD60}</Project>
+      <Project>{4E083D42-F796-D5DC-324B-CC73FC7BEDEA}</Project>
       <Name>Microsoft.MixedReality.Toolkit</Name>
     </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.SDK.Inspectors.csproj">
-      <Project>{60F3A633-A61E-FEA1-E53E-C02D28512948}</Project>
+      <Project>{77291D8B-B705-E868-E221-0897917C78C7}</Project>
       <Name>Microsoft.MixedReality.Toolkit.SDK.Inspectors</Name>
     </ProjectReference>
   </ItemGroup>

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{88149D31-A267-C2C4-6600-B0CF646AF522}</ProjectGuid>
+    <ProjectGuid>{E5F947E4-A92F-3C23-E33C-E803122B4CD8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Microsoft.MixedReality.Toolkit.Providers.XRSDK.WindowsMixedReality</AssemblyName>
@@ -73,10 +73,10 @@
     <Compile Include="Assets\MixedRealityToolkit.Providers\WindowsMixedReality\XRSDK\WindowsMixedRealitySpatialMeshObserver.cs" />
     <Compile Include="Assets\MixedRealityToolkit.Providers\WindowsMixedReality\XRSDK\XRSDKWindowsMixedRealityUtilitiesProvider.cs" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -606,15 +606,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.csproj">
-      <Project>{93FC38E7-4E1F-43DA-083F-DD4BAD60AD60}</Project>
+      <Project>{4E083D42-F796-D5DC-324B-CC73FC7BEDEA}</Project>
       <Name>Microsoft.MixedReality.Toolkit</Name>
     </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Providers.WindowsMixedReality.Shared.csproj">
-      <Project>{A9C02C5E-C303-7FFE-7FAA-09F009B712DC}</Project>
+      <Project>{CDEF02F8-D8B9-4D5A-1561-F43ACD6A660B}</Project>
       <Name>Microsoft.MixedReality.Toolkit.Providers.WindowsMixedReality.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Providers.XRSDK.csproj">
-      <Project>{B98FD7C3-051B-4346-42B8-63CB26B03552}</Project>
+      <Project>{F290CC06-CD33-D921-81F9-CBF159CF5365}</Project>
       <Name>Microsoft.MixedReality.Toolkit.Providers.XRSDK</Name>
     </ProjectReference>
   </ItemGroup>

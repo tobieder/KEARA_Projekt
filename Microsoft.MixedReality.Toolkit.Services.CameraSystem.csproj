@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F297DFE4-4F48-75EA-D251-3A36A5E018F4}</ProjectGuid>
+    <ProjectGuid>{A8E0373B-9DFF-23D1-0380-5BD10BD48392}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Microsoft.MixedReality.Toolkit.Services.CameraSystem</AssemblyName>
@@ -66,10 +66,10 @@
     <Compile Include="Assets\MixedRealityToolkit.Services\CameraSystem\AssemblyInfo.cs" />
     <Compile Include="Assets\MixedRealityToolkit.Services\CameraSystem\MixedRealityCameraSystem.cs" />
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/tobia/Desktop/Unity/KEARA_Projekt/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -614,7 +614,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.csproj">
-      <Project>{93FC38E7-4E1F-43DA-083F-DD4BAD60AD60}</Project>
+      <Project>{4E083D42-F796-D5DC-324B-CC73FC7BEDEA}</Project>
       <Name>Microsoft.MixedReality.Toolkit</Name>
     </ProjectReference>
   </ItemGroup>

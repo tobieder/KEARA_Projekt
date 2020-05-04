@@ -1282,8 +1282,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ScanSimulator.cs" />
+    <Compile Include="Assets\FlexibleLayoutGroup.cs" />
+    <Compile Include="Assets\Scripts\CurrentDateTime.cs" />
+    <Compile Include="Assets\Scripts\ScanSimulator.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\VoiceNumberScan.cs" />
     <Compile Include="Assets\Tutorial_Info\Scripts\Readme.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
