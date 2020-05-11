@@ -46,9 +46,9 @@ public class BarcodeScanning : MonoBehaviour
 
     void OnGUI()
     {
-        //GUI.DrawTexture(screenRect, wCamTexture, ScaleMode.ScaleToFit); // <- Optional: draw webcam on the Screen
+        GUI.DrawTexture(screenRect, wCamTexture, ScaleMode.ScaleToFit); // <- Optional: draw webcam on the Screen
         int count = 0;
-        if (count %5 == 0)
+        if (count == 0)
         {
             try
             {
