@@ -13,6 +13,7 @@ public class ScanSimulator : MonoBehaviour
     Color rejected = new Color(255.0f, 0.0f, 0.0f);
 
     public GameObject nextUI;
+    private BackendManager backendManger = BackendManager.Instance;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class ScanSimulator : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             StartCoroutine(ReadID());
         }
@@ -33,7 +34,7 @@ public class ScanSimulator : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
-        if(Random.Range(0.0f, 1.0f) > 0.3f)
+        if (Random.Range(0.0f, 1.0f) > 0.3f)
         {
             scanArea.color = accepted;
             if (nextUI != null)
@@ -52,5 +53,30 @@ public class ScanSimulator : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         scanArea.color = white;
+    }
+
+    public void login(string id)
+    {
+
+        Employee employee = backendManger.login(id);
+
+        if (employee != null)
+        {
+            transform.gameObject.SetActive(false);
+            nextUI.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("employee null");
+        }
+
+        if(backendManger.currentEmployee != null)
+        {
+            Debug.Log(backendManger.currentEmployee.name);
+        }
+        else
+        {
+            Debug.Log("employee null2");
+        }
     }
 }
