@@ -200,7 +200,6 @@ GameObject:
   - component: {fileID: 282840818}
   - component: {fileID: 282840817}
   - component: {fileID: 282840812}
-  - component: {fileID: 282840815}
   - component: {fileID: 282840819}
   m_Layer: 0
   m_Name: Main Camera
@@ -331,12 +330,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!224 &338782852 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5234426576715676739, guid: df89e360642c6fc46abbc1c2656856f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1776357872}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &282840819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,11 +337,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282840810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &338782852 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5234426576715676739, guid: df89e360642c6fc46abbc1c2656856f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1776357872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &401346996
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +721,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.2544e-41, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 3.1888e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -797,7 +796,7 @@ PrefabInstance:
     - target: {fileID: 108762345594134268, guid: 96fe51ca2266f2549bb3b93ac7b9eb5b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 1e-45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 108762345594134268, guid: 96fe51ca2266f2549bb3b93ac7b9eb5b,
         type: 3}
@@ -807,7 +806,7 @@ PrefabInstance:
     - target: {fileID: 108762345594134268, guid: 96fe51ca2266f2549bb3b93ac7b9eb5b,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 3.59e-43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96fe51ca2266f2549bb3b93ac7b9eb5b, type: 3}
@@ -828,6 +827,7 @@ GameObject:
   - component: {fileID: 1640787039}
   - component: {fileID: 1640787041}
   - component: {fileID: 1640787040}
+  - component: {fileID: 1640787042}
   m_Layer: 0
   m_Name: UserInterface
   m_TagString: Untagged
@@ -908,6 +908,18 @@ MonoBehaviour:
   additionalOffset: {x: 0, y: 0, z: 0}
   additionalRotation: {x: 0, y: 0, z: 0}
   updateSolvers: 1
+--- !u!114 &1640787042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640787038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1694305202
 GameObject:
   m_ObjectHideFlags: 0

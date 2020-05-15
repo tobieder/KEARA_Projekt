@@ -10,6 +10,7 @@ public class BarcodeScanning : MonoBehaviour
     private WebCamTexture wCamTexture;
     private Rect screenRect;
 
+    int delay = 0;
     void Start()
     {
         screenRect = new Rect(0, 0, Screen.width, Screen.height);
@@ -43,12 +44,32 @@ public class BarcodeScanning : MonoBehaviour
         encoded.Apply();
         return encoded;
     }
+    private void Update()
+    {
+        delay++;
+        if (delay == 10)
+        { 
+            try
+            {
+                IBarcodeReader barcodeReader = new BarcodeReader();
+                // decode the current frame
+                var result = barcodeReader.Decode(wCamTexture.GetPixels32(),
+                  wCamTexture.width, wCamTexture.height);
+                if (result != null)
+                {
+                    Debug.Log("DECODED TEXT FROM QR: " + result.Text);
+                }
+            }
+            catch (Exception ex) { Debug.LogWarning(ex.Message); }
+            delay = 0;
+        }
+        
+    }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         GUI.DrawTexture(screenRect, wCamTexture, ScaleMode.ScaleToFit); // <- Optional: draw webcam on the Screen
-        int count = 0;
-        if (count == 0)
+        if (delay == 600)
         {
             try
             {
@@ -62,8 +83,8 @@ public class BarcodeScanning : MonoBehaviour
                 }
             }
             catch (Exception ex) { Debug.LogWarning(ex.Message); }
-            count = 0;
+            delay = 0;
         }
-        count++;
-    }
+        delay++;
+    }*/
 }
