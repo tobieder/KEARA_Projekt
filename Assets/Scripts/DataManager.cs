@@ -6,13 +6,15 @@ using DataProvider;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance { get; private set;}
-    public UserData currentEmployee = null;
 
     public DataProvider.DataProvider data;
+    public UserData currentEmployee = null;
 
+    private float shiftStartTime = 0.0f;
+    private bool clockedIn = false;
+    
     private int simiulationCounter = 0;
 
-   
     private void Awake()
     {
         if (Instance == null)
@@ -31,6 +33,7 @@ public class DataManager : MonoBehaviour
         }
 
         currentEmployee = data.FindUserById(employeeID);
+
         if(currentEmployee != null)
         {
             Debug.Log(currentEmployee.name + " Logged in successfully");
@@ -47,5 +50,23 @@ public class DataManager : MonoBehaviour
         string employeeID = currentEmployee.id;
         currentEmployee = null;
         Debug.Log("Employee: " + employeeID + " successfully logged out");
+
+        ClockOut();
+    }
+
+    public void ClockIn()
+    {
+        shiftStartTime = Time.time;
+        clockedIn = true;
+    }
+
+    public void ClockOut()
+    {
+        clockedIn = false;
+        float currentTime = Time.time;
+
+        float shift = currentTime - shiftStartTime;
+        int shiftInt = (int)shift;
+        Debug.Log("Total Shift Time in Seconds: " + shiftInt.ToString());
     }
 }

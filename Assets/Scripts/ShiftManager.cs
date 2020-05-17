@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Logout : MonoBehaviour
+public class ShiftManager : MonoBehaviour
 {
+    public void ClockIn()
+    {
+        DataManager.Instance.ClockIn();
+    }
 
     public void LogoutCurrentUser()
     {
-        //Debug.Log(DataManager.Instance.currentEmployee.name);
         DataManager.Instance.Logout();
     }
 }

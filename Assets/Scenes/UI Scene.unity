@@ -8157,7 +8157,7 @@ RectTransform:
   m_Children:
   - {fileID: 1102554607}
   m_Father: {fileID: 684237483}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14090,10 +14090,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children:
-  - {fileID: 404650591}
   - {fileID: 1237999482}
   - {fileID: 833057848}
   - {fileID: 2130161319}
+  - {fileID: 404650591}
   - {fileID: 1658923876}
   - {fileID: 1774226304}
   - {fileID: 471979262}
@@ -18088,7 +18088,7 @@ RectTransform:
   - {fileID: 5234426578278645559}
   - {fileID: 1178927722}
   m_Father: {fileID: 684237483}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25195,7 +25195,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1658923877}
-        m_MethodName: Logoutss
+        m_MethodName: LogoutCurrentUser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27279,7 +27279,7 @@ RectTransform:
   - {fileID: 5234426577712565633}
   - {fileID: 754814704}
   m_Father: {fileID: 684237483}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -43846,7 +43846,7 @@ RectTransform:
   - {fileID: 2123372780}
   - {fileID: 1849040737}
   m_Father: {fileID: 684237483}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
