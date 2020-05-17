@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DataProvider;
+using TMPro;
 
 public class ScanSimulator : MonoBehaviour
 {
@@ -13,7 +15,9 @@ public class ScanSimulator : MonoBehaviour
     Color rejected = new Color(255.0f, 0.0f, 0.0f);
 
     public GameObject nextUI;
-    private BackendManager backendManger = BackendManager.Instance;
+    public GameObject LoginFailerPanel;
+    public GameObject EmployeeNamePanel;
+    public TextMeshProUGUI EmployeeNameText;
 
     void Start()
     {
@@ -57,26 +61,22 @@ public class ScanSimulator : MonoBehaviour
 
     public void login(string id)
     {
-
-        Employee employee = backendManger.login(id);
+        // gets the data of the employee if one was found and if not employee will be null
+        UserData employee = DataManager.Instance.Login(id);
 
         if (employee != null)
         {
+            // if employee with id was found next scene will be loaded and employee name panel will be filled
             transform.gameObject.SetActive(false);
             nextUI.SetActive(true);
+            LoginFailerPanel.SetActive(false);
+            EmployeeNamePanel.SetActive(true);
+            EmployeeNameText.text = employee.name;
         }
         else
         {
-            Debug.Log("employee null");
-        }
-
-        if(backendManger.currentEmployee != null)
-        {
-            Debug.Log(backendManger.currentEmployee.name);
-        }
-        else
-        {
-            Debug.Log("employee null2");
+            // if employee with id NOT found an error message will be displayed to notify the user to try to scan again
+            LoginFailerPanel.SetActive(true);
         }
     }
 }
