@@ -14639,6 +14639,7 @@ GameObject:
   - component: {fileID: 709372800}
   - component: {fileID: 709372799}
   - component: {fileID: 709372798}
+  - component: {fileID: 709372801}
   m_Layer: 5
   m_Name: ScanArea
   m_TagString: Untagged
@@ -14672,7 +14673,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709372796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b58d4c8e733c9f49924f3a22b1b4983, type: 3}
   m_Name: 
@@ -14717,6 +14718,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709372796}
   m_CullTransparentMesh: 0
+--- !u!114 &709372801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709372796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  webcam: {fileID: 769568880}
+  sDatatype: package
+  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
+  nextUI: {fileID: 727606587}
 --- !u!1 &713868781
 GameObject:
   m_ObjectHideFlags: 0
@@ -16695,6 +16712,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768764092}
   m_CullTransparentMesh: 0
+--- !u!1 &769568878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769568879}
+  - component: {fileID: 769568880}
+  m_Layer: 0
+  m_Name: Webcam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &769568879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769568878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3359454, y: 0.36580262, z: 0.9146433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769568880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769568878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc044b4018842624da64b733cf3934f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &772640884
 GameObject:
   m_ObjectHideFlags: 0
@@ -18133,10 +18193,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3157edd1ec0f1bd4da74ed482764aab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
   currentEmployee:
     name: 
     id: 
-  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
 --- !u!1 &859547956
 GameObject:
   m_ObjectHideFlags: 0
@@ -36326,6 +36386,7 @@ GameObject:
   - component: {fileID: 1674657429}
   - component: {fileID: 1674657428}
   - component: {fileID: 1674657427}
+  - component: {fileID: 1674657430}
   m_Layer: 5
   m_Name: ScanArea
   m_TagString: Untagged
@@ -36404,6 +36465,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674657425}
   m_CullTransparentMesh: 0
+--- !u!114 &1674657430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674657425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  webcam: {fileID: 769568880}
+  sDatatype: tour
+  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
+  nextUI: {fileID: 1115440656}
 --- !u!1 &1677154427
 GameObject:
   m_ObjectHideFlags: 0
@@ -38628,6 +38705,7 @@ GameObject:
   - component: {fileID: 1790738152}
   - component: {fileID: 1790738156}
   - component: {fileID: 1790738154}
+  - component: {fileID: 1790738155}
   m_Layer: 5
   m_Name: ScanArea
   m_TagString: Untagged
@@ -38744,6 +38822,22 @@ MonoBehaviour:
           m_StringArgument: 123456789abcd
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1790738155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790738150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  webcam: {fileID: 769568880}
+  sDatatype: login
+  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
+  nextUI: {fileID: 1658923875}
 --- !u!114 &1790738156
 MonoBehaviour:
   m_ObjectHideFlags: 0

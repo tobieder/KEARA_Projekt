@@ -2,23 +2,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using ZXing;
 using ZXing.QrCode;
-using TMPro;
+using DataProvider;
 
 public class BarcodeScanning : MonoBehaviour
 {
-    public TextMeshProUGUI QROutup;
+    public Webcam webcam;
+    public string sDatatype;
 
     private WebCamTexture wCamTexture;
     private Rect screenRect;
 
-    void Start()
+    [SerializeField]
+    public DataProvider.DataProvider data;
+
+    int delay = 0;
+
+    Image scanArea;
+
+    Color white = new Color(255.0f, 255.0f, 255.0f);
+    Color reading = new Color(255.0f, 165.0f, 0.0f);
+    Color accepted = new Color(0.0f, 255.0f, 0.0f);
+    Color rejected = new Color(255.0f, 0.0f, 0.0f);
+
+    public GameObject nextUI;
+
+    void Awake()
     {
+        scanArea = transform.GetComponent<Image>();
         screenRect = new Rect(0, 0, Screen.width, Screen.height);
-        wCamTexture = new WebCamTexture();
-        wCamTexture.requestedHeight = Screen.height;
-        wCamTexture.requestedWidth = Screen.width;
+        wCamTexture = webcam.GetWebCamTexture();
         if (wCamTexture != null)
         {
             wCamTexture.Play();
@@ -46,28 +61,82 @@ public class BarcodeScanning : MonoBehaviour
         encoded.Apply();
         return encoded;
     }
-
-    void OnGUI()
+    private void Update()
     {
-        //GUI.DrawTexture(screenRect, wCamTexture, ScaleMode.ScaleToFit); // <- Optional: draw webcam on the Screen
-        int count = 0;
-        if (count == 0)
+        delay++;
+        if (delay == 10)
         {
             try
             {
                 IBarcodeReader barcodeReader = new BarcodeReader();
-                // decode the current frame
                 var result = barcodeReader.Decode(wCamTexture.GetPixels32(),
                   wCamTexture.width, wCamTexture.height);
+
                 if (result != null)
                 {
                     Debug.Log("DECODED TEXT FROM QR: " + result.Text);
-                    QROutup.text = result.Text;
+                    switch (sDatatype)
+                    {
+                        case "login":
+                            UserData user = data.FindUserById(result.Text);
+                            if (user != null)
+                            {
+                                Debug.Log("User found");
+                                scanArea.color = accepted;
+                                SwitchUI();
+                            }
+                            else
+                            {
+                                scanArea.color = rejected;
+                                Debug.Log("User Not Found");
+                            }
+                            break;
+
+                        case "tour":
+                            TourData tour = data.FindTourById(result.Text);
+                            if (tour != null)
+                            {
+                                Debug.Log("Tour found");
+                                scanArea.color = accepted;
+                                SwitchUI();
+                            }
+                            else
+                            {
+                                scanArea.color = rejected;
+                                Debug.Log("Tour Not Found");
+                            }
+                            break;
+
+                        case "package":
+                            PackageData package = data.FindPackageById(result.Text); ;
+                            if (package != null)
+                            {
+                                Debug.Log("Package found");
+                                scanArea.color = accepted;
+                                SwitchUI();
+                            }
+                            else
+                            {
+                                scanArea.color = rejected;
+                                Debug.Log("Package Not Found");
+                            }
+                            break;
+                        default:
+                            Debug.Log("datatype not given");
+                            scanArea.color = rejected;
+                            break;
+                    }
                 }
+                    Debug.Log("DECODED TEXT FROM QR: " + result.Text);
             }
             catch (Exception ex) { Debug.LogWarning(ex.Message); }
-            count = 0;
+            delay = 0;
         }
-        count++;
+    }
+    public void SwitchUI()
+    {
+        scanArea.color = white;
+        nextUI.SetActive(true);
+        transform.parent.gameObject.SetActive(false);
     }
 }
