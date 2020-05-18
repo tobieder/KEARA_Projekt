@@ -1,0 +1,27 @@
+{
+  "loginData": [
+    {
+      "id": "123456789abcd",
+      "name": "Max Mustermann"
+    }
+  ],
+  "packageData": [
+    {
+      "id": "qwertz1234",
+      "weight": 12.3,
+      "tourId": "tour123"
+    }
+  ],
+  "tourData": [
+    {
+      "id": "tour123",
+      "destination": {
+        "street": "Musterstraﬂe",
+        "number": "24b",
+        "postalCode": "DE-12345",
+        "city": "Musterstadt",
+        "country": "Germany"
+      }
+    }
+  ]
+}
