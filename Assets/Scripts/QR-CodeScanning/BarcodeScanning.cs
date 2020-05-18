@@ -5,7 +5,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
 using ZXing.QrCode;
+<<<<<<< HEAD
 using DataProvider;
+=======
+<<<<<<< HEAD:Assets/QR-CodeScanning/BarcodeScanning.cs
+using DataProvider;
+=======
+using TMPro;
+>>>>>>> 97678495fc0630cc70dd95100b1123e428a9ef46:Assets/Scripts/QR-CodeScanning/BarcodeScanning.cs
+>>>>>>> 03d8b7450f80f70de0e3e2d66f114563d08757cb
 
 public class BarcodeScanning : MonoBehaviour
 {
@@ -14,9 +22,16 @@ public class BarcodeScanning : MonoBehaviour
 
     private WebCamTexture wCamTexture;
     private Rect screenRect;
-
     [SerializeField]
     public DataProvider.DataProvider data;
+
+<<<<<<< HEAD
+    [SerializeField]
+    public DataProvider.DataProvider data;
+=======
+    public Webcam webcam;
+    public string sDatatype;
+>>>>>>> 03d8b7450f80f70de0e3e2d66f114563d08757cb
 
     int delay = 0;
 
@@ -61,20 +76,101 @@ public class BarcodeScanning : MonoBehaviour
         encoded.Apply();
         return encoded;
     }
+<<<<<<< HEAD
     private void Update()
     {
         delay++;
         if (delay == 10)
+=======
+
+    private void Update()
+    {
+<<<<<<< HEAD:Assets/QR-CodeScanning/BarcodeScanning.cs
+            delay++;
+            if (delay == 10)
+=======
+        //GUI.DrawTexture(screenRect, wCamTexture, ScaleMode.ScaleToFit); // <- Optional: draw webcam on the Screen
+        int count = 0;
+        if (count == 0)
+>>>>>>> 03d8b7450f80f70de0e3e2d66f114563d08757cb
         {
             try
+>>>>>>> 97678495fc0630cc70dd95100b1123e428a9ef46:Assets/Scripts/QR-CodeScanning/BarcodeScanning.cs
             {
+<<<<<<< HEAD
                 IBarcodeReader barcodeReader = new BarcodeReader();
                 var result = barcodeReader.Decode(wCamTexture.GetPixels32(),
                   wCamTexture.width, wCamTexture.height);
 
                 if (result != null)
+=======
+                try
+>>>>>>> 03d8b7450f80f70de0e3e2d66f114563d08757cb
                 {
+<<<<<<< HEAD:Assets/QR-CodeScanning/BarcodeScanning.cs
+                    IBarcodeReader barcodeReader = new BarcodeReader();
+                    // decode the current frame
+                    var result = barcodeReader.Decode(wCamTexture.GetPixels32(),
+                      wCamTexture.width, wCamTexture.height);
+
+                    if (result != null)
+                    {
+                        Debug.Log("DECODED TEXT FROM QR: " + result.Text);
+                        switch (sDatatype)
+                        {
+                            case "login":
+                                UserData user = data.FindUserById(result.Text);
+                                if (user != null)
+                                {
+                                    Debug.Log("User found");
+                                    scanArea.color = accepted;
+                                    SwitchUI();
+                                }
+                                else
+                                {
+                                    scanArea.color = rejected;
+                                    Debug.Log("User Not Found");
+                                }
+                                break;
+
+                            case "tour":
+                                TourData tour = data.FindTourById(result.Text);
+                                if (tour != null)
+                                {
+                                    Debug.Log("Tour found");
+                                    scanArea.color = accepted;
+                                    SwitchUI();
+                                }
+                                else
+                                {
+                                    scanArea.color = rejected;
+                                    Debug.Log("Tour Not Found");
+                                }
+                                break;
+
+                            case "package":
+                                PackageData package = data.FindPackageById(result.Text); ;
+                                if (package != null)
+                                {
+                                    Debug.Log("Package found");
+                                    scanArea.color = accepted;
+                                    SwitchUI();
+                                }
+                                else
+                                {
+                                    scanArea.color = rejected;
+                                    Debug.Log("Package Not Found");
+                                }
+                                break;
+                            default:
+                                Debug.Log("datatype not given");
+                                scanArea.color = rejected;
+                                break;
+                        }
+                    }
+=======
                     Debug.Log("DECODED TEXT FROM QR: " + result.Text);
+<<<<<<< HEAD
                     switch (sDatatype)
                     {
                         case "login":
