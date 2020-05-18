@@ -14546,6 +14546,7 @@ GameObject:
   - component: {fileID: 709372800}
   - component: {fileID: 709372799}
   - component: {fileID: 709372798}
+  - component: {fileID: 709372801}
   m_Layer: 5
   m_Name: ScanArea
   m_TagString: Untagged
@@ -14579,7 +14580,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709372796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b58d4c8e733c9f49924f3a22b1b4983, type: 3}
   m_Name: 
@@ -14621,6 +14622,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709372796}
   m_CullTransparentMesh: 0
+--- !u!114 &709372801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709372796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sDatatype: package
+  nextUI: {fileID: 727606587}
 --- !u!1 &713868781
 GameObject:
   m_ObjectHideFlags: 0
@@ -35600,6 +35615,7 @@ GameObject:
   - component: {fileID: 1674657429}
   - component: {fileID: 1674657428}
   - component: {fileID: 1674657427}
+  - component: {fileID: 1674657430}
   m_Layer: 5
   m_Name: ScanArea
   m_TagString: Untagged
@@ -35633,7 +35649,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674657425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b58d4c8e733c9f49924f3a22b1b4983, type: 3}
   m_Name: 
@@ -35675,6 +35691,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674657425}
   m_CullTransparentMesh: 0
+--- !u!114 &1674657430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674657425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sDatatype: tour
+  nextUI: {fileID: 1115440656}
 --- !u!1 &1677154427
 GameObject:
   m_ObjectHideFlags: 0
@@ -37898,6 +37928,7 @@ GameObject:
   - component: {fileID: 1790738153}
   - component: {fileID: 1790738152}
   - component: {fileID: 1790738154}
+  - component: {fileID: 1790738155}
   m_Layer: 5
   m_Name: ScanArea
   m_TagString: Untagged
@@ -37967,11 +37998,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790738150}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b58d4c8e733c9f49924f3a22b1b4983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextUI: {fileID: 1658923875}
+--- !u!114 &1790738155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790738150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sDatatype: login
   nextUI: {fileID: 1658923875}
 --- !u!1 &1795920970
 GameObject:
