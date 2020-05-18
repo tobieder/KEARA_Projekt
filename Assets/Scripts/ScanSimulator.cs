@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DataProvider;
+using TMPro;
 
 public class ScanSimulator : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class ScanSimulator : MonoBehaviour
     Color rejected = new Color(255.0f, 0.0f, 0.0f);
 
     public GameObject nextUI;
+    public GameObject LoginFailerPanel;
+    public GameObject EmployeeNamePanel;
+    public TextMeshProUGUI EmployeeNameText;
 
     void Start()
     {
@@ -21,7 +26,7 @@ public class ScanSimulator : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             StartCoroutine(ReadID());
         }
@@ -33,7 +38,7 @@ public class ScanSimulator : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
-        if(Random.Range(0.0f, 1.0f) > 0.3f)
+        if (Random.Range(0.0f, 1.0f) > 0.3f)
         {
             scanArea.color = accepted;
             if (nextUI != null)
@@ -52,5 +57,26 @@ public class ScanSimulator : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         scanArea.color = white;
+    }
+
+    public void login(string id)
+    {
+        // gets the data of the employee if one was found and if not employee will be null
+        UserData employee = DataManager.Instance.Login(id);
+
+        if (employee != null)
+        {
+            // if employee with id was found next scene will be loaded and employee name panel will be filled
+            transform.gameObject.SetActive(false);
+            nextUI.SetActive(true);
+            LoginFailerPanel.SetActive(false);
+            EmployeeNamePanel.SetActive(true);
+            EmployeeNameText.text = employee.name;
+        }
+        else
+        {
+            // if employee with id NOT found an error message will be displayed to notify the user to try to scan again
+            LoginFailerPanel.SetActive(true);
+        }
     }
 }
