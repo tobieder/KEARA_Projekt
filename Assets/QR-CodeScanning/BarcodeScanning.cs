@@ -14,6 +14,7 @@ public class BarcodeScanning : MonoBehaviour
     [SerializeField]
     public DataProvider.DataProvider data;
 
+    public Webcam webcam;
     public string sDatatype;
 
     int delay = 0;
@@ -31,9 +32,7 @@ public class BarcodeScanning : MonoBehaviour
     {
         scanArea = transform.GetComponent<Image>();
         screenRect = new Rect(0, 0, Screen.width, Screen.height);
-        wCamTexture = new WebCamTexture();
-        wCamTexture.requestedHeight = Screen.height;
-        wCamTexture.requestedWidth = Screen.width;
+        wCamTexture = webcam.getWebcamTexture();
         if (wCamTexture != null)
         {
             wCamTexture.Play();
@@ -66,88 +65,79 @@ public class BarcodeScanning : MonoBehaviour
 
     private void Update()
     {
-        delay++;
-        if (delay == 10)
-        { 
-            try
+            delay++;
+            if (delay == 10)
             {
-                IBarcodeReader barcodeReader = new BarcodeReader();
-                // decode the current frame
-                var result = barcodeReader.Decode(wCamTexture.GetPixels32(),
-                  wCamTexture.width, wCamTexture.height);
-                
-                if (result != null)
+                try
                 {
-                    Debug.Log("DECODED TEXT FROM QR: " + result.Text);
-                    switch(sDatatype)
+                    IBarcodeReader barcodeReader = new BarcodeReader();
+                    // decode the current frame
+                    var result = barcodeReader.Decode(wCamTexture.GetPixels32(),
+                      wCamTexture.width, wCamTexture.height);
+
+                    if (result != null)
                     {
-                        case "login":
-                            UserData user = data.FindUserById(result.Text);
-                            if (user != null)
-                            {
-                                Debug.Log("User found");
-                                scanArea.color = accepted;
-                                SwitchUI();
-                            }
-                            else
-                            {
-                                scanArea.color = rejected;
-                                Debug.Log("User Not Found");
-                            }
-                            break;
+                        Debug.Log("DECODED TEXT FROM QR: " + result.Text);
+                        switch (sDatatype)
+                        {
+                            case "login":
+                                UserData user = data.FindUserById(result.Text);
+                                if (user != null)
+                                {
+                                    Debug.Log("User found");
+                                    scanArea.color = accepted;
+                                    SwitchUI();
+                                }
+                                else
+                                {
+                                    scanArea.color = rejected;
+                                    Debug.Log("User Not Found");
+                                }
+                                break;
 
-                        case "tour":
-                            TourData tour = data.FindTourById(result.Text);
-                            if (tour != null)
-                            {
-                                Debug.Log("Tour found");
-                                scanArea.color = accepted;
-                                SwitchUI();
-                            }
-                            else
-                            {
-                                scanArea.color = rejected;
-                                Debug.Log("Tour Not Found");
-                            }
-                            break;
+                            case "tour":
+                                TourData tour = data.FindTourById(result.Text);
+                                if (tour != null)
+                                {
+                                    Debug.Log("Tour found");
+                                    scanArea.color = accepted;
+                                    SwitchUI();
+                                }
+                                else
+                                {
+                                    scanArea.color = rejected;
+                                    Debug.Log("Tour Not Found");
+                                }
+                                break;
 
-                        case "package":
-                            PackageData package = data.FindPackageById(result.Text); ;
-                            if (package != null)
-                            {
-                                Debug.Log("Package found");
-                                scanArea.color = accepted;
-                                SwitchUI();
-                            }
-                            else
-                            {
+                            case "package":
+                                PackageData package = data.FindPackageById(result.Text); ;
+                                if (package != null)
+                                {
+                                    Debug.Log("Package found");
+                                    scanArea.color = accepted;
+                                    SwitchUI();
+                                }
+                                else
+                                {
+                                    scanArea.color = rejected;
+                                    Debug.Log("Package Not Found");
+                                }
+                                data.FindPackageById(result.Text);
+                                break;
+                            default:
+                                Debug.Log("datatype not given");
                                 scanArea.color = rejected;
-                                Debug.Log("Package Not Found");
-                            }
-                            data.FindPackageById(result.Text);
-                            break;
-                        default:
-                            Debug.Log("datatype not given");
-                            scanArea.color = rejected;
-                            break;
+                                break;
+                        }
                     }
                 }
-            }
-            catch (Exception ex) { Debug.LogWarning(ex.Message); }
+                catch (Exception ex) { Debug.LogWarning(ex.Message); }
             delay = 0;
         }
-        
     }
     public void SwitchUI()
     {
-        scanArea.color = white;
-        nextUI.SetActive(true);
-        transform.parent.gameObject.SetActive(false);
-    }
-    IEnumerator SwitchToNext()
-    {
-        Debug.Log("SwitchToNext");
-        yield return new WaitForSeconds(0.2f);
         scanArea.color = white;
         nextUI.SetActive(true);
         transform.parent.gameObject.SetActive(false);
