@@ -123,7 +123,6 @@ public class BarcodeScanning : MonoBehaviour
                                     scanArea.color = rejected;
                                     Debug.Log("Package Not Found");
                                 }
-                                data.FindPackageById(result.Text);
                                 break;
                             default:
                                 Debug.Log("datatype not given");
