@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SceneSwitcher.unity
+    guid: 1406e7e1ef01dec4e8325d5e44419680
+  - enabled: 1
     path: Assets/Scenes/HoloLensScene.unity
     guid: 31b9248a8bb5f2a43b575d0395255dcf
+  - enabled: 1
+    path: Assets/Scenes/QRCodeScene.unity
+    guid: 02dd9feda9b51de4eaa4227972d4d2f1
   m_configObjects: {}
