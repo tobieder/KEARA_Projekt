@@ -59,6 +59,7 @@ public class ScanSimulator : MonoBehaviour
         scanArea.color = white;
     }
 
+    /*
     public void login(string id)
     {
         // gets the data of the employee if one was found and if not employee will be null
@@ -79,4 +80,5 @@ public class ScanSimulator : MonoBehaviour
             LoginFailerPanel.SetActive(true);
         }
     }
+    */
 }
