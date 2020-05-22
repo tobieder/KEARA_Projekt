@@ -9,7 +9,17 @@
     {
       "id": "1234",
       "weight": 12.3,
-      "tourId": "tour123"
+      "tourId": "5678"
+    },
+    {
+      "id": "1235",
+      "weight": 12.3,
+      "tourId": "5678"
+    },
+    {
+      "id": "1236",
+      "weight": 12.3,
+      "tourId": "5678"
     }
   ],
   "tourData": [
@@ -21,7 +31,10 @@
         "postalCode": "DE-12345",
         "city": "Musterstadt",
         "country": "Germany"
-      }
+      },
+      "packagesList": [
+        "1234", "1235", "1236"
+      ]
     }
   ]
 }

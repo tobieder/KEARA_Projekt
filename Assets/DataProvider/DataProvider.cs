@@ -35,6 +35,7 @@ namespace DataProvider
     {
         public string id;
         public Address destination;
+        public string[] packagesList;
     }
 
     [Serializable]

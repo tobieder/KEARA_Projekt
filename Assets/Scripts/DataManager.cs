@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DataProvider;
 
-public enum Type { login, tour, package };
+public enum CheckIdType { login, tour, package };
 
 public class DataManager : MonoBehaviour
 {
@@ -13,11 +14,12 @@ public class DataManager : MonoBehaviour
     public UserData currentEmployee = null;
 
     public TourData currentTour = null;
+    public List<(string id, bool scanned)> currentTourPackages = new List<(string id, bool scanned)>();
+
+    public PackageData currentPackage = null;
 
     private float shiftStartTime = 0.0f;
     private bool clockedIn = false;
-
-    private int simiulationCounter = 0;
 
     private void Awake()
     {
@@ -28,25 +30,20 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public UserData Login(string employeeID)
+    public bool Login(string employeeID)
     {
-        if (simiulationCounter == 0)
-        {
-            simiulationCounter++;
-            return null;
-        }
-
         currentEmployee = data.FindUserById(employeeID);
 
         if (currentEmployee != null)
         {
             Debug.Log(currentEmployee.name + " Logged in successfully");
+            return true;
         }
         else
         {
             Debug.Log("UserId not found: " + employeeID);
+            return false;
         }
-        return currentEmployee;
     }
 
     public void Logout()
@@ -74,37 +71,103 @@ public class DataManager : MonoBehaviour
         Debug.Log("Total Shift Time in Seconds: " + shiftInt.ToString());
     }
 
-    public TourData SetCurrentTour(string tourId)
+    public bool setCurrentTour(string tourId)
     {
-        if (simiulationCounter == 0)
-        {
-            simiulationCounter++;
-            return null;
-        }
-
         currentTour = data.FindTourById(tourId);
 
         if (currentTour != null)
         {
             Debug.Log(currentTour.id + " Tour started.");
+            for (int i = 0; i < currentTour.packagesList.Length; i++)
+            {
+                string packageID = currentTour.packagesList[i];
+                currentTourPackages.Add((packageID, false));
+            }
+            return true;
         }
         else
         {
             Debug.Log("TourID not found: " + tourId);
+            return false;
         }
-        return currentTour;
     }
 
-    //EndTour, SetCurrentPackage, EndCurrentPackage
-
-    //Überprüfung wie in BarcodeScan (switchCase)
-    void CheckID(string currentID, Type type, GameObject currentUI, GameObject nextUI, GameObject errorUI)
+    public void EndCurrentTour()
     {
+        EndCurrentPackage();
+        currentTour = null;
+        currentTourPackages.Clear();
+    }
+
+    public bool SetCurrentPackage(string packageID)
+    {
+        // how to handle errors when the package it self is here and it is in the packagesList of the tour
+        // and was scanned but no complete package data was found
+        currentPackage = data.FindPackageById(packageID);
+
+        int packageIndex = currentTourPackages.FindIndex(it => it.id == packageID);
+        if (packageIndex != -1)
+        {
+            Debug.Log("Package scanned: " + packageID);
+            currentTourPackages[packageIndex] = (packageID, true);
+            return true;
+        }
+        else
+        {
+            Debug.Log("Package not found: " + packageID);
+            return false;
+        }
+    }
+
+    public void EndCurrentPackage()
+    {
+        currentPackage = null;
+    }
+
+    // currentUI and nextUI can be null if no objects should be changed after the check
+    public bool CheckID(string objectID, CheckIdType type, GameObject currentUI, GameObject nextUI, GameObject errorUI)
+    {
+        bool success = false;
+        switch (type)
+        {
+            case CheckIdType.login:
+                success = Login(objectID);
+                break;
+            case CheckIdType.tour:
+                success = setCurrentTour(objectID);
+                break;
+            case CheckIdType.package:
+                success = SetCurrentPackage(objectID);
+                break;
+        }
+
+        if (success)
+        {
+            SwitchUI(currentUI, nextUI);
+            if (errorUI != null && errorUI.active)
+            {
+                errorUI.SetActive(false);
+            }
+        }
+        else if (errorUI != null)
+        {
+            errorUI.SetActive(true);
+        }
+
+        return success;
     }
 
     public void SwitchUI(GameObject currentUI, GameObject nextUI)
     {
-        nextUI.SetActive(true);
-        currentUI.SetActive(false);
+        if (currentUI != null)
+        {
+            currentUI.SetActive(false);
+        }
+
+        if (nextUI != null)
+        {
+            nextUI.SetActive(true);
+        }
+
     }
 }
