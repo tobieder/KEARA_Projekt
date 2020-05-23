@@ -7,7 +7,6 @@ using ZXing.QrCode;
 
 public class BarcodeTester : MonoBehaviour
 {
-    public Webcam webcam;
     private WebCamTexture wCamTexture;
     private Rect screenRect;
     Image scanArea;
@@ -18,10 +17,16 @@ public class BarcodeTester : MonoBehaviour
     {
         scanArea = transform.GetComponent<Image>();
         screenRect = new Rect(0, 0, Screen.width, Screen.height);
-        wCamTexture = webcam.GetWebCamTexture();
+        wCamTexture = new WebCamTexture();
+        wCamTexture.requestedHeight = Screen.height;
+        wCamTexture.requestedWidth = Screen.width;
         if (wCamTexture != null)
         {
             wCamTexture.Play();
+        }
+        else
+        {
+            Debug.Log("Keine Webcam erkannt");
         }
     }
 

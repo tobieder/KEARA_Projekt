@@ -8,14 +8,13 @@ using DataProvider;
 
 public class BarcodeScanning : MonoBehaviour
 {
-    public Webcam webcam;
-    public string sDatatype;
+    private Webcam webcam;
+    public CheckIdType sDatatype;
 
     private WebCamTexture wCamTexture;
     private Rect screenRect;
 
-    [SerializeField]
-    public DataProvider.DataProvider data;
+    private DataManager manager;
 
     int delay = 0;
 
@@ -27,12 +26,17 @@ public class BarcodeScanning : MonoBehaviour
     Color rejected = new Color(255.0f, 0.0f, 0.0f);
 
     public GameObject nextUI;
+    public GameObject ErrorUI;
+
+    private GameObject gameManager;
 
     void Awake()
     {
         scanArea = transform.GetComponent<Image>();
         screenRect = new Rect(0, 0, Screen.width, Screen.height);
-        wCamTexture = webcam.GetWebCamTexture();
+        gameManager = GameObject.FindGameObjectWithTag("Manager");
+        manager = gameManager.GetComponent<DataManager>();
+        wCamTexture = gameManager.GetComponent<Webcam>().GetWebCamTexture();
         if (wCamTexture != null)
         {
             wCamTexture.Play();
@@ -75,58 +79,7 @@ public class BarcodeScanning : MonoBehaviour
                 if (result != null)
                 {
                     Debug.Log("DECODED TEXT FROM QR: " + result.Text);
-                    switch (sDatatype)
-                    {
-                        case "login":
-                            UserData user = data.FindUserById(result.Text);
-                            if (user != null)
-                            {
-                                Debug.Log("User found");
-                                scanArea.color = accepted;
-                                SwitchUI();
-                            }
-                            else
-                            {
-                                scanArea.color = rejected;
-                                Debug.Log("User Not Found");
-                            }
-                            break;
-
-                        case "tour":
-                            TourData tour = data.FindTourById(result.Text);
-                            if (tour != null)
-                            {
-                                Debug.Log("Tour found");
-                                scanArea.color = accepted;
-                                SwitchUI();
-                            }
-                            else
-                            {
-                                scanArea.color = rejected;
-                                Debug.Log("Tour Not Found");
-                            }
-                            break;
-
-                        case "package":
-                            PackageData package = data.FindPackageById(result.Text); ;
-                            if (package != null)
-                            {
-                                Debug.Log("Package found");
-                                scanArea.color = accepted;
-                                SwitchUI();
-                            }
-                            else
-                            {
-                                scanArea.color = rejected;
-                                Debug.Log("Package Not Found");
-                            }
-                            break;
-                        default:
-                            Debug.Log("datatype not given");
-                            scanArea.color = rejected;
-                            break;
-                    }
-                    Debug.Log("DECODED TEXT FROM QR: " + result.Text);
+                    manager.CheckID(result.Text, sDatatype, transform.parent.gameObject, nextUI, ErrorUI);
                 }
             }
             catch (Exception ex) { Debug.LogWarning(ex.Message); }
