@@ -14108,6 +14108,7 @@ RectTransform:
   - {fileID: 1774226304}
   - {fileID: 471979262}
   - {fileID: 274178999}
+  - {fileID: 1585658672}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14730,10 +14731,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  webcam: {fileID: 769568880}
-  sDatatype: package
-  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
+  sDatatype: 2
   nextUI: {fileID: 727606587}
+  ErrorUI: {fileID: 1585658671}
 --- !u!1 &713868781
 GameObject:
   m_ObjectHideFlags: 0
@@ -16722,9 +16722,10 @@ GameObject:
   m_Component:
   - component: {fileID: 769568879}
   - component: {fileID: 769568880}
+  - component: {fileID: 769568881}
   m_Layer: 0
-  m_Name: Webcam
-  m_TagString: Untagged
+  m_Name: Manager
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16755,6 +16756,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc044b4018842624da64b733cf3934f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &769568881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769568878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3157edd1ec0f1bd4da74ed482764aab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
+  currentEmployee:
+    name: 
+    id: 
+  currentTour:
+    id: 
+    destination:
+      street: 
+      number: 
+      postalCode: 
+      city: 
+      country: 
+    packagesList: []
+  currentPackage:
+    id: 
+    tourId: 
+    weight: 0
 --- !u!1 &772640884
 GameObject:
   m_ObjectHideFlags: 0
@@ -18205,6 +18235,11 @@ MonoBehaviour:
       postalCode: 
       city: 
       country: 
+    packagesList: []
+  currentPackage:
+    id: 
+    tourId: 
+    weight: 0
 --- !u!1 &859547956
 GameObject:
   m_ObjectHideFlags: 0
@@ -27341,7 +27376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1237999482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34708,6 +34743,92 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572823586}
   m_CullTransparentMesh: 0
+--- !u!1 &1585658671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585658672}
+  - component: {fileID: 1585658675}
+  - component: {fileID: 1585658674}
+  - component: {fileID: 1585658673}
+  m_Layer: 5
+  m_Name: Error
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1585658672
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585658671}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 684237483}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1585658673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585658671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e395292183c0441a0cdd3e032b153d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1585658674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585658671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 450f83aa9d67ce949bca351c4b09c598, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1585658675
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585658671}
+  m_CullTransparentMesh: 0
 --- !u!1 &1589252747
 GameObject:
   m_ObjectHideFlags: 0
@@ -36485,10 +36606,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  webcam: {fileID: 769568880}
-  sDatatype: tour
-  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
+  sDatatype: 1
   nextUI: {fileID: 1115440656}
+  ErrorUI: {fileID: 1585658671}
 --- !u!1 &1677154427
 GameObject:
   m_ObjectHideFlags: 0
@@ -38842,10 +38962,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e04d28393162944be9e600807616db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  webcam: {fileID: 769568880}
-  sDatatype: login
-  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
+  sDatatype: 0
   nextUI: {fileID: 1658923875}
+  ErrorUI: {fileID: 1585658671}
 --- !u!114 &1790738156
 MonoBehaviour:
   m_ObjectHideFlags: 0
