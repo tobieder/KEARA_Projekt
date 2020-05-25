@@ -266,6 +266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberInput: {fileID: 117520775}
   nextUI: {fileID: 727606587}
+  errorUI: {fileID: 0}
+  type: 0
 --- !u!114 &6878285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10996,6 +10998,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberInput: {fileID: 654700553}
   nextUI: {fileID: 1115440656}
+  errorUI: {fileID: 1585658671}
+  type: 1
 --- !u!1 &536520714
 GameObject:
   m_ObjectHideFlags: 0
@@ -26409,6 +26413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberInput: {fileID: 923789016}
   nextUI: {fileID: 727606587}
+  errorUI: {fileID: 1585658671}
+  type: 1
 --- !u!114 &1200032715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27937,6 +27943,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberInput: {fileID: 1052449868}
   nextUI: {fileID: 1658923875}
+  errorUI: {fileID: 1585658671}
+  type: 0
 --- !u!114 &1285446999
 MonoBehaviour:
   m_ObjectHideFlags: 0
