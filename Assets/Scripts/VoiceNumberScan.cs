@@ -1,6 +1,8 @@
 ﻿using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.Input;
+using System;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +11,8 @@ public class VoiceNumberScan : MonoBehaviour, IMixedRealityDictationHandler
 {
     public TextMeshProUGUI numberInput;
     public GameObject nextUI;
+    public GameObject errorUI;
+    public CheckIdType type;
 
     string number;
     bool bIsRecording;
@@ -34,7 +38,7 @@ public class VoiceNumberScan : MonoBehaviour, IMixedRealityDictationHandler
 
     public void OnDictationResult(DictationEventData eventData)
     {
-        number = eventData.DictationResult.Trim(" .".ToCharArray());
+        number = new String(eventData.DictationResult.Where(Char.IsDigit).ToArray());
         Debug.Log("Dictation result: " + eventData.DictationResult);
     }
 
@@ -71,10 +75,6 @@ public class VoiceNumberScan : MonoBehaviour, IMixedRealityDictationHandler
             button.interactable = true;
         }
 
-        if (nextUI != null)
-        {
-            nextUI.SetActive(true);
-            transform.parent.gameObject.SetActive(false);
-        }
+        DataManager.Instance.CheckID(number, type, transform.parent.gameObject, nextUI, errorUI);
     }
 }
