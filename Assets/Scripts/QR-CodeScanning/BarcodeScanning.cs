@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
@@ -16,7 +16,7 @@ public class BarcodeScanning : MonoBehaviour
 
     private DataManager manager;
 
-    int delay = 0;
+    float delay = 0;
 
     Image scanArea;
 
@@ -57,6 +57,7 @@ public class BarcodeScanning : MonoBehaviour
         };
         return bWriter.Write(textForEncoding);
     }
+
     public Texture2D generateQR(string text)
     {
         var encoded = new Texture2D(256, 256);
@@ -68,8 +69,8 @@ public class BarcodeScanning : MonoBehaviour
 
     private void Update()
     {
-        delay++;
-        if (delay == 10)
+        delay += Time.deltaTime;
+        if (delay >= 1)
         {
             try
             {
@@ -83,9 +84,10 @@ public class BarcodeScanning : MonoBehaviour
                 }
             }
             catch (Exception ex) { Debug.LogWarning(ex.Message); }
-            delay = 0;
+            delay = 0.0f;
         }
     }
+
     public void SwitchUI()
     {
         scanArea.color = white;
