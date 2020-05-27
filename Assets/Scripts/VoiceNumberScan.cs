@@ -34,6 +34,7 @@ public class VoiceNumberScan : MonoBehaviour, IMixedRealityDictationHandler
     public void OnDictationHypothesis(DictationEventData eventData)
     {
         Debug.Log("Dictation hypothesis: " + eventData.DictationResult);
+        numberInput.text = eventData.DictationResult;
     }
 
     public void OnDictationResult(DictationEventData eventData)
