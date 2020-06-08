@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using ZXing;
 using ZXing.QrCode;
 using DataProvider;
+using Boo.Lang;
+using System.Collections.Generic;
 
 public class BarcodeScanning : MonoBehaviour
 {
@@ -75,6 +77,10 @@ public class BarcodeScanning : MonoBehaviour
             try
             {
                 IBarcodeReader barcodeReader = new BarcodeReader();
+                barcodeReader.Options.PossibleFormats = new System.Collections.Generic.List<BarcodeFormat>();
+                barcodeReader.Options.PossibleFormats.Add(BarcodeFormat.QR_CODE);
+                barcodeReader.Options.TryHarder = false;
+
                 var result = barcodeReader.Decode(wCamTexture.GetPixels32(),
                   wCamTexture.width, wCamTexture.height);
                 if (result != null)
