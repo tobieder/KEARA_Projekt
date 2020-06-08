@@ -76,6 +76,7 @@ public class BarcodeScanning : MonoBehaviour
         {
             try
             {
+
                 IBarcodeReader barcodeReader = new BarcodeReader();
                 barcodeReader.Options.PossibleFormats = new System.Collections.Generic.List<BarcodeFormat>();
                 barcodeReader.Options.PossibleFormats.Add(BarcodeFormat.QR_CODE);
@@ -86,7 +87,10 @@ public class BarcodeScanning : MonoBehaviour
                 if (result != null)
                 {
                     Debug.Log("DECODED TEXT FROM QR: " + result.Text);
-                    manager.CheckID(result.Text, sDatatype, transform.parent.gameObject, nextUI, ErrorUI);
+                    if(manager.CheckID(result.Text, sDatatype, transform.parent.gameObject, nextUI, ErrorUI))
+                    {
+                        wCamTexture.Stop();
+                    }
                 }
             }
             catch (Exception ex) { Debug.LogWarning(ex.Message); }
