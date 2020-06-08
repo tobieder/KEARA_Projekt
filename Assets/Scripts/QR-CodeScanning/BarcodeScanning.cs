@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
@@ -33,8 +33,8 @@ public class BarcodeScanning : MonoBehaviour
     void Awake()
     {
         scanArea = transform.GetComponent<Image>();
-        screenRect = new Rect(0, 0, Screen.width, Screen.height);
         gameManager = GameObject.FindGameObjectWithTag("Manager");
+        screenRect = new Rect(0, 0, Screen.width, Screen.height);
         manager = gameManager.GetComponent<DataManager>();
         wCamTexture = gameManager.GetComponent<Webcam>().GetWebCamTexture();
         if (wCamTexture != null)
@@ -75,6 +75,10 @@ public class BarcodeScanning : MonoBehaviour
             try
             {
                 IBarcodeReader barcodeReader = new BarcodeReader();
+                barcodeReader.Options.PossibleFormats = new List<BarcodeFormat>();
+                barcodeReader.Options.PossibleFormats.Add(BarcodeFormat.QR_CODE);
+                barcodeReader.Options.TryHarder = false;
+                
                 var result = barcodeReader.Decode(wCamTexture.GetPixels32(),
                   wCamTexture.width, wCamTexture.height);
                 if (result != null)
