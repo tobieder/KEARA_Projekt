@@ -9,35 +9,59 @@
       "name": "Tobias Eder"
     }
   ],
-  "packageData": [
-    {
-      "id": "1234",
-      "weight": 12.3,
-      "tourId": "5678"
-    },
-    {
-      "id": "1235",
-      "weight": 12.3,
-      "tourId": "5678"
-    },
-    {
-      "id": "1236",
-      "weight": 12.3,
-      "tourId": "5678"
-    }
-  ],
   "tourData": [
     {
-      "id": "5678",
-      "destination": {
-        "street": "Musterstraﬂe",
-        "number": "24b",
-        "postalCode": "DE-12345",
-        "city": "Musterstadt",
-        "country": "Germany"
-      },
-      "packagesList": [
-        "1234", "1235", "1236"
+      "id": 567890123,
+      "tourNumber": 5678,
+      "ssccs": [
+        {
+          "id": 1234,
+          "code": "400000000000400004",
+          "posId": 138519,
+          "posNumber": 1,
+          "comment": null,
+          "creator": null,
+          "SSCCStatus": 1,
+          "destinationLane": {
+            "id": 139065,
+            "designation": "Lane 1",
+            "laneType": 3
+          },
+
+          "weight": 12.3
+        },
+        {
+          "id": 1235,
+          "code": "400000000000400087",
+          "posId": 138112,
+          "posNumber": 2,
+          "comment": null,
+          "creator": null,
+          "SSCCStatus": 0,
+          "destinationLane": {
+            "id": 139067,
+            "designation": "Lane 2",
+            "laneType": 3
+          },
+
+          "weight": 12.3
+        },
+        {
+          "id": 1236,
+          "code": "400000000000400090",
+          "posId": 138120,
+          "posNumber": 3,
+          "comment": null,
+          "creator": null,
+          "SSCCStatus": 0,
+          "destinationLane": {
+            "id": 139067,
+            "designation": "Lane 2",
+            "laneType": 3
+          },
+
+          "weight": 12.3
+        }
       ]
     }
   ]

@@ -1,8 +1,7 @@
-﻿using System.Collections;
+﻿using DataProvider;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using DataProvider;
 
 public enum CheckIdType { login, tour, package };
 
@@ -71,23 +70,23 @@ public class DataManager : MonoBehaviour
         Debug.Log("Total Shift Time in Seconds: " + shiftInt.ToString());
     }
 
-    public bool setCurrentTour(string tourId)
+    public bool setCurrentTour(int tourId)
     {
         currentTour = data.FindTourById(tourId);
 
         if (currentTour != null)
         {
             Debug.Log(currentTour.id + " Tour started.");
-            for (int i = 0; i < currentTour.packagesList.Length; i++)
+            for (int i = 0; i < currentTour.ssccs.Length; i++)
             {
-                string packageID = currentTour.packagesList[i];
-                currentTourPackages.Add((packageID, false));
+                PackageData package = currentTour.ssccs[i];
+                currentTourPackages.Add((package.code, false));
             }
             return true;
         }
         else
         {
-            Debug.Log("TourID not found: " + tourId);
+            Debug.Log("TourID not found: " + tourId.ToString());
             return false;
         }
     }
@@ -103,7 +102,7 @@ public class DataManager : MonoBehaviour
     {
         // how to handle errors when the package it self is here and it is in the packagesList of the tour
         // and was scanned but no complete package data was found
-        currentPackage = data.FindPackageById(packageID);
+        currentPackage = data.FindPackageByCode(packageID);
 
         int packageIndex = currentTourPackages.FindIndex(it => it.id == packageID);
         if (packageIndex != -1)
@@ -134,7 +133,7 @@ public class DataManager : MonoBehaviour
                 success = Login(objectID);
                 break;
             case CheckIdType.tour:
-                success = setCurrentTour(objectID);
+                success = setCurrentTour(Int32.Parse(objectID));
                 break;
             case CheckIdType.package:
                 success = SetCurrentPackage(objectID);
