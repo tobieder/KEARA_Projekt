@@ -80,6 +80,61 @@
         "1238",
         "1239",
         "1240 "
+=======
+  "tourData": [
+    {
+      "id": 567890123,
+      "tourNumber": 5678,
+      "ssccs": [
+        {
+          "id": 1234,
+          "code": "400000000000400004",
+          "posId": 138519,
+          "posNumber": 1,
+          "comment": null,
+          "creator": null,
+          "SSCCStatus": 1,
+          "destinationLane": {
+            "id": 139065,
+            "designation": "Lane 1",
+            "laneType": 3
+          },
+
+          "weight": 12.3
+        },
+        {
+          "id": 1235,
+          "code": "400000000000400087",
+          "posId": 138112,
+          "posNumber": 2,
+          "comment": null,
+          "creator": null,
+          "SSCCStatus": 0,
+          "destinationLane": {
+            "id": 139067,
+            "designation": "Lane 2",
+            "laneType": 3
+          },
+
+          "weight": 12.3
+        },
+        {
+          "id": 1236,
+          "code": "400000000000400090",
+          "posId": 138120,
+          "posNumber": 3,
+          "comment": null,
+          "creator": null,
+          "SSCCStatus": 0,
+          "destinationLane": {
+            "id": 139067,
+            "designation": "Lane 2",
+            "laneType": 3
+          },
+
+          "weight": 12.3
+        }
+>>>>>>> origin/package_report_menu
       ]
     }
   ]

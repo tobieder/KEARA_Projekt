@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -13,36 +12,41 @@ namespace DataProvider
     }
 
     [Serializable]
-    public class Address
+    public class Destination
     {
-        public string street;
-        public string number;
-        public string postalCode;
-        public string city;
-        public string country;
+        public int id;
+        public string designation;
+        public int laneType;
     }
 
     [Serializable]
     public class PackageData
     {
-        public string id;
-        public string tourId;
+        public int id;
+        public string code; //NVE-Number, Barcode/QR-Code
+        public int posId;   //internal reference
+        public string comment;
+        public string creator;
+        public int SSCCStatus;  //0=not set, 1=successfully scanned
+        public Destination destinationLane;
+
         public double weight;
     }
 
     [Serializable]
     public class TourData
     {
-        public string id;
-        public Address destination;
-        public string[] packagesList;
+        public int id;
+        public int tourNumber;  //short number/name
+        public int areaType;    //1=inbound
+        public PackageData[] ssccs;
+
     }
 
     [Serializable]
     public class Data
     {
         public UserData[] loginData;
-        public PackageData[] packageData;
         public TourData[] tourData;
     }
 
@@ -65,21 +69,21 @@ namespace DataProvider
             return dJSONData.loginData.FirstOrDefault(t => t.id.Equals(sUserId));
         }
 
-        public PackageData FindPackageById(string sPackageId)
+        public PackageData FindPackageByCode(string sPackageCode)
         {
-            Debug.Log("Find Package by PackageId: " + sPackageId);
-            return dJSONData.packageData.FirstOrDefault(t => t.id.Equals(sPackageId));
+            Debug.Log("Find Package by PackageId: " + sPackageCode);
+            return dJSONData.tourData.FirstOrDefault(t => t.ssccs.Any(p => p.code.Equals(sPackageCode))).ssccs.FirstOrDefault(p => p.code.Equals(sPackageCode));
         }
 
-        public List<PackageData> FindPackagesByTourId(string sTourId)
+        /*public TourData FindTourByPackageCode(string sPackageCode)
         {
-            Debug.Log("Find Packages by TourId: " + sTourId);
-            return dJSONData.packageData.Where(t => t.tourId.Equals(sTourId)).ToList();
-        }
+            Debug.Log("Find Tour by PackageId: " + sPackageCode);
+            return dJSONData.tourData.FirstOrDefault(t => t.ssccs.Any(p => p.code.Equals(sPackageCode)));
+        }*/
 
-        public TourData FindTourById(string sTourId)
+        public TourData FindTourById(int sTourId)
         {
-            Debug.Log("Find Tour by TourId: " + sTourId);
+            Debug.Log("Find Tour by TourId: " + sTourId.ToString());
             return dJSONData.tourData.FirstOrDefault(t => t.id.Equals(sTourId));
         }
     }

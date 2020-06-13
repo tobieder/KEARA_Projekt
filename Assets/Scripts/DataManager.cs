@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using DataProvider;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using DataProvider;
 
 public enum CheckIdType { login, tour, package };
+public enum PackageReportCode { NoStatus, PackageSuccess, PackageMissing, PackageDamaged, BarCodeMissing };
 
 public class DataManager : MonoBehaviour
 {
@@ -14,7 +14,6 @@ public class DataManager : MonoBehaviour
     public UserData currentEmployee = null;
 
     public TourData currentTour = null;
-    public List<(string id, bool scanned)> currentTourPackages = new List<(string id, bool scanned)>();
 
     public PackageData currentPackage = null;
 
@@ -71,23 +70,18 @@ public class DataManager : MonoBehaviour
         Debug.Log("Total Shift Time in Seconds: " + shiftInt.ToString());
     }
 
-    public bool setCurrentTour(string tourId)
+    public bool setCurrentTour(int tourId)
     {
         currentTour = data.FindTourById(tourId);
 
         if (currentTour != null)
         {
-            Debug.Log(currentTour.id + " Tour started.");
-            for (int i = 0; i < currentTour.packagesList.Length; i++)
-            {
-                string packageID = currentTour.packagesList[i];
-                currentTourPackages.Add((packageID, false));
-            }
+            Debug.Log("Tour: " + currentTour.id + " started.");
             return true;
         }
         else
         {
-            Debug.Log("TourID not found: " + tourId);
+            Debug.Log("TourID not found: " + tourId.ToString());
             return false;
         }
     }
@@ -95,33 +89,55 @@ public class DataManager : MonoBehaviour
     public void EndCurrentTour()
     {
         EndCurrentPackage();
+
         currentTour = null;
-        currentTourPackages.Clear();
     }
 
-    public bool SetCurrentPackage(string packageID)
+    public bool SetCurrentPackage(string packageCode)
     {
         // how to handle errors when the package it self is here and it is in the packagesList of the tour
         // and was scanned but no complete package data was found
-        currentPackage = data.FindPackageById(packageID);
+        currentPackage = Array.Find(currentTour.ssccs, it => it.code == packageCode);
 
-        int packageIndex = currentTourPackages.FindIndex(it => it.id == packageID);
-        if (packageIndex != -1)
+        if (currentPackage != null)
         {
-            Debug.Log("Package scanned: " + packageID);
-            currentTourPackages[packageIndex] = (packageID, true);
+            Debug.Log("Package scanned: " + packageCode);
             return true;
         }
         else
         {
-            Debug.Log("Package not found: " + packageID);
+            Debug.Log("Package not found in current tour: " + packageCode);
             return false;
         }
     }
 
     public void EndCurrentPackage()
     {
+        int packageIndex = Array.FindIndex(currentTour.ssccs, it => it.code == currentPackage.code);
+        currentTour.ssccs[packageIndex] = currentPackage;
         currentPackage = null;
+    }
+
+    public bool ReportCurrentPackage(PackageReportCode reportCode)
+    {
+        currentPackage.SSCCStatus = (int)reportCode;
+        return ReportPackage(currentPackage.code, reportCode);
+    }
+
+    public bool ReportPackage(string PackageCode, PackageReportCode reportCode)
+    {
+        int packageIndex = Array.FindIndex(currentTour.ssccs, it => it.code == PackageCode); 
+        
+        if (packageIndex != -1)
+        {
+            currentTour.ssccs[packageIndex].SSCCStatus = (int)reportCode;
+            return true;
+        }
+        else
+        {
+            Debug.Log("Package not found in current tour: " + PackageCode);
+            return false;
+        }
     }
 
     // currentUI and nextUI can be null if no objects should be changed after the check
@@ -134,7 +150,7 @@ public class DataManager : MonoBehaviour
                 success = Login(objectID);
                 break;
             case CheckIdType.tour:
-                success = setCurrentTour(objectID);
+                success = setCurrentTour(Int32.Parse(objectID));
                 break;
             case CheckIdType.package:
                 success = SetCurrentPackage(objectID);
