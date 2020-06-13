@@ -24,6 +24,26 @@
       "id": "1236",
       "weight": 12.3,
       "tourId": "5678"
+    },
+    {
+      "id": "1237",
+      "weight": 12.3,
+      "tourId": "5678"
+    },
+    {
+      "id": "1238",
+      "weight": 12.3,
+      "tourId": "5678"
+    },
+    {
+      "id": "1239",
+      "weight": 12.3,
+      "tourId": "5678"
+    },
+    {
+      "id": "1240",
+      "weight": 12.3,
+      "tourId": "5678"
     }
   ],
   "tourData": [
@@ -37,7 +57,29 @@
         "country": "Germany"
       },
       "packagesList": [
-        "1234", "1235", "1236"
+        "1234",
+        "1235",
+        "1236"
+      ]
+    },
+    {
+      "id": "456789",
+      "destination": {
+        "street": "Musterstraﬂe",
+        "number": "24b",
+        "postalCode": "DE-12345",
+        "city": "Musterstadt",
+        "country": "Germany"
+      },
+      "packagesList": [
+        "1236",
+        "1234",
+        "1235",
+        "1236",
+        "1237",
+        "1238",
+        "1239",
+        "1240 "
       ]
     }
   ]

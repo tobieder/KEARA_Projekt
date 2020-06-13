@@ -11,9 +11,6 @@ public class PackageListControl : MonoBehaviour
     private GameObject buttonTemplate;
 
     [SerializeField]
-    private DataManager manager;
-
-    [SerializeField]
     private TextMeshProUGUI titel;
 
     List<PackageData> tourPackages;
@@ -22,7 +19,8 @@ public class PackageListControl : MonoBehaviour
 
     private void Start()
     {
-        manager.setCurrentTour("5678");
+        DataManager manager = DataManager.Instance;
+        //manager.setCurrentTour("5678");
         titel.text = "Tour: " + manager.currentTour.id;
         foreach (var t in manager.currentTour.packagesList)
         {

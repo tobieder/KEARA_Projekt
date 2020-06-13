@@ -7,6 +7,7 @@ using ZXing.QrCode;
 using DataProvider;
 using Boo.Lang;
 using System.Collections.Generic;
+using TMPro;
 
 public class BarcodeScanning : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class BarcodeScanning : MonoBehaviour
 
     private WebCamTexture wCamTexture;
     private Rect screenRect;
+
+    public TextMeshProUGUI employeeInformation;
 
     private DataManager manager;
 
@@ -37,7 +40,7 @@ public class BarcodeScanning : MonoBehaviour
         scanArea = transform.GetComponent<Image>();
         screenRect = new Rect(0, 0, Screen.width, Screen.height);
         gameManager = GameObject.FindGameObjectWithTag("Manager");
-        manager = gameManager.GetComponent<DataManager>();
+        manager = DataManager.Instance;
         wCamTexture = gameManager.GetComponent<Webcam>().GetWebCamTexture();
         if (wCamTexture != null)
         {
@@ -90,6 +93,10 @@ public class BarcodeScanning : MonoBehaviour
                     if(manager.CheckID(result.Text, sDatatype, transform.parent.gameObject, nextUI, ErrorUI))
                     {
                         wCamTexture.Stop();
+                        if (sDatatype == CheckIdType.login)
+                        {
+                            employeeInformation.text = DataManager.Instance.currentEmployee.name + "\n" + DataManager.Instance.currentEmployee.id;
+                        }
                     }
                 }
             }

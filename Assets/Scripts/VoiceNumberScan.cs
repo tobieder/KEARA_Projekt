@@ -80,7 +80,10 @@ public class VoiceNumberScan : MonoBehaviour, IMixedRealityDictationHandler
 
         if(DataManager.Instance.CheckID(number, type, transform.parent.gameObject, nextUI, errorUI))
         {
-            employeeInformation.text = DataManager.Instance.currentEmployee.name + "\n" + DataManager.Instance.currentEmployee.id;
+            if (type == CheckIdType.login)
+            {
+                employeeInformation.text = DataManager.Instance.currentEmployee.name + "\n" + DataManager.Instance.currentEmployee.id;
+            }
         }
     }
 }
