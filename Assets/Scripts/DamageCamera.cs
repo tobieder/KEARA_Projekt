@@ -19,8 +19,9 @@ public class DamageCamera : MonoBehaviour
         Texture2D snapshot = new Texture2D(webCamTexture.width, webCamTexture.height);
         snapshot.SetPixels32(webCamTexture.GetPixels32());
 
-        //AppData/LocalLow/HS Kempten/KEARA
-        string outFilename = Path.Combine(Application.persistentDataPath, "damage_" + DateTime.Now.ToString().Replace(":", "_") + ".jpg");
+        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "KEARA");
+        Directory.CreateDirectory(path);
+        string outFilename = Path.Combine(path, "damage_" + DateTime.Now.ToString().Replace(":", "_") + ".jpg");
         File.WriteAllBytes(outFilename, snapshot.EncodeToJPG());
         Debug.Log("Saved image to " + outFilename);
 
