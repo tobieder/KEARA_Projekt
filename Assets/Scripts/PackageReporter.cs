@@ -5,14 +5,16 @@ using UnityEngine;
 public class PackageReporter : MonoBehaviour
 {
     public PackageReportCode reportCode;
+    public GameObject currentUI;
     public GameObject nextUI;
 
     public void ReportCurrentPackage()
     {
         // the next 2 lines are only for testing. currentPackage and currentTour should be set before 
         // the user comes to this scene
-        DataManager.Instance.setCurrentTour(567890123);
-        DataManager.Instance.SetCurrentPackage("400000000000400090");
+        //DataManager.Instance.setCurrentTour(567890123);
+        //DataManager.Instance.setCurrentTour(139149);
+        //DataManager.Instance.SetCurrentPackage("400000000000400090");
         //////////////////////////////////
         
         bool success = DataManager.Instance.ReportCurrentPackage(reportCode);
@@ -26,7 +28,7 @@ public class PackageReporter : MonoBehaviour
     private void switchUI()
     {
         nextUI.SetActive(true);
-        transform.parent.gameObject.SetActive(false);
+        currentUI.SetActive(false);
     }
 
 }

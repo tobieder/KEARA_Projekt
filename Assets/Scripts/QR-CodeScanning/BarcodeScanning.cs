@@ -79,6 +79,10 @@ public class BarcodeScanning : MonoBehaviour
         {
             try
             {
+                if(!wCamTexture.isPlaying)
+                {
+                    wCamTexture.Play();
+                }
 
                 IBarcodeReader barcodeReader = new BarcodeReader();
                 barcodeReader.Options.PossibleFormats = new System.Collections.Generic.List<BarcodeFormat>();
@@ -110,5 +114,10 @@ public class BarcodeScanning : MonoBehaviour
         scanArea.color = white;
         nextUI.SetActive(true);
         transform.parent.gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        wCamTexture.Stop();
     }
 }

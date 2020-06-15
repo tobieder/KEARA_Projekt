@@ -111,6 +111,22 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public PackageData getPackage(string packageCode)
+    {
+        currentPackage = Array.Find(currentTour.ssccs, it => it.code == packageCode);
+
+        if (currentPackage != null)
+        {
+            Debug.Log("Package scanned: " + packageCode);
+            return currentPackage;
+        }
+        else
+        {
+            Debug.LogError("Package not found in current tour: " + packageCode);
+            return null;
+        }
+    }
+
     public void EndCurrentPackage()
     {
         int packageIndex = Array.FindIndex(currentTour.ssccs, it => it.code == currentPackage.code);

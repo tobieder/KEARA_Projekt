@@ -1,0 +1,161 @@
+{
+	"loginData": [
+		{
+			"id": "123456",
+			"name": "Max Mustermann"
+		},
+		{
+			"id": "98765",
+			"name": "Tobias Eder"
+		}
+	],
+	"tourData": [
+		{
+			"id": 139149,
+			"tourNumber": 11482,
+			"areaType": 1,
+			"ssccs": [
+				{
+					"id": 138969,
+					"code": "400000000000400004",
+					"posId": 138519,
+					"posNumber": 1,
+					"comment": null,
+					"creator": null,
+					"SSCCStatus": 0,
+					"destinationLane": {
+						"id": 139065,
+						"designation": "Lane 1",
+						"laneType": 3
+					},
+
+					"weight": 12.3
+
+				},
+				{
+					"id": 139114,
+					"code": "400000000000400087",
+					"posId": 139112,
+					"posNumber": 5,
+					"comment": null,
+					"creator": null,
+					"SSCCStatus": 0,
+					"destinationLane": {
+						"id": 139067,
+						"designation": "Lane 3",
+						"laneType": 3
+					},
+
+					"weight": 2.5
+				},
+				{
+					"id": 139120,
+					"code": "400000000000400090",
+					"posId": 139117,
+					"posNumber": 6,
+					"comment": null,
+					"creator": null,
+					"SSCCStatus": 0,
+					"destinationLane": {
+						"id": 139067,
+						"designation": "Lane 3",
+						"laneType": 3
+					},
+
+					"weight": 8.1
+				},
+				{
+					"id": 139126,
+					"code": "1234",
+					"posId": 139117,
+					"posNumber": 6,
+					"comment": null,
+					"creator": null,
+					"SSCCStatus": 0,
+					"destinationLane": {
+						"id": 139067,
+						"designation": "Lane 6",
+						"laneType": 3
+					},
+
+					"weight": 8.1
+				},
+				{
+					"id": 139129,
+					"code": "4321",
+					"posId": 139117,
+					"posNumber": 6,
+					"comment": null,
+					"creator": null,
+					"SSCCStatus": 0,
+					"destinationLane": {
+						"id": 139067,
+						"designation": "Lane 9",
+						"laneType": 3
+					},
+
+					"weight": 8.1
+				}
+
+			]
+		},
+
+		{
+			"id": 172839,
+			"tourNumber": 99283,
+			"areaType": 1,
+			"ssccs": [
+				{
+					"id": 138204,
+					"code": "400000000000400006",
+					"posId": 138519,
+					"posNumber": 1,
+					"comment": null,
+					"creator": null,
+					"SSCCStatus": 1,
+					"destinationLane": {
+						"id": 139065,
+						"designation": "Lane 1",
+						"laneType": 3
+					},
+
+					"weight": 12.3
+
+				},
+				{
+					"id": 139192,
+					"code": "400000000000400025",
+					"posId": 139112,
+					"posNumber": 5,
+					"comment": null,
+					"creator": null,
+					"SSCCStatus": 0,
+					"destinationLane": {
+						"id": 139067,
+						"designation": "Lane 3",
+						"laneType": 3
+					},
+
+					"weight": 2.5
+				},
+				{
+					"id": 139193,
+					"code": "400000000000400064",
+					"posId": 139117,
+					"posNumber": 6,
+					"comment": null,
+					"creator": null,
+					"SSCCStatus": 0,
+					"destinationLane": {
+						"id": 139067,
+						"designation": "Lane 3",
+						"laneType": 3
+					},
+
+					"weight": 8.1
+				}
+
+			]
+		}
+	]
+}
