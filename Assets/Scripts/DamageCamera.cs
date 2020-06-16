@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamageCamera : MonoBehaviour
 {
+    public GameObject currentUI;
     public GameObject nextUI;
 
     private WebCamTexture webCamTexture;
@@ -27,7 +28,10 @@ public class DamageCamera : MonoBehaviour
 
         webCamTexture.Stop();
 
-        transform.parent.gameObject.SetActive(false);
+        if(currentUI != null)
+        {
+            currentUI.SetActive(false);
+        }
         if (nextUI != null)
         {
             nextUI.SetActive(true);
