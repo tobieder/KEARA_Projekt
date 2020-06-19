@@ -11,6 +11,8 @@ using TMPro;
 
 public class BarcodeScanning : MonoBehaviour
 {
+    [SerializeField]
+    bool addingNew = false;
     private Webcam webcam;
     public CheckIdType sDatatype;
 
@@ -94,7 +96,11 @@ public class BarcodeScanning : MonoBehaviour
                 if (result != null)
                 {
                     Debug.Log("DECODED TEXT FROM QR: " + result.Text);
-                    if(manager.CheckID(result.Text, sDatatype, transform.parent.gameObject, nextUI, ErrorUI))
+                    if(addingNew)
+                    {
+
+                    }
+                    else if(manager.CheckID(result.Text, sDatatype, transform.parent.gameObject, nextUI, ErrorUI))
                     {
                         wCamTexture.Stop();
                         if (sDatatype == CheckIdType.login)
@@ -102,6 +108,7 @@ public class BarcodeScanning : MonoBehaviour
                             employeeInformation.text = DataManager.Instance.currentEmployee.name + "\n" + DataManager.Instance.currentEmployee.id;
                         }
                     }
+
                 }
             }
             catch (Exception ex) { Debug.LogWarning(ex.Message); }
