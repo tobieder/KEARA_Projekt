@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -55,7 +56,21 @@ namespace DataProvider
     {
         public TextAsset tInputFile;
 
+        public bool bSaveOnDisk = false;
+
         private Data dJSONData;
+
+        private void saveOnDisk()
+        {
+            Debug.Log("save on disk: " + bSaveOnDisk.ToString());
+            if (!bSaveOnDisk)
+            {
+                return;
+            }
+            string path = Path.Combine(Application.dataPath, "..", "tourOuput.json");
+            File.WriteAllText(path, JsonUtility.ToJson(dJSONData));
+            Debug.Log("Saved tours to " + path);
+        }
 
         public void OnEnable()
         {
@@ -85,6 +100,15 @@ namespace DataProvider
         {
             Debug.Log("Find Tour by TourId: " + sTourId.ToString());
             return dJSONData.tourData.FirstOrDefault(t => t.id.Equals(sTourId));
+        }
+
+        public void UpdateTour(TourData tour)
+        {
+            Debug.Log("Update tour " + tour.id.ToString());
+            int index = Array.FindIndex(dJSONData.tourData, t => t.id == tour.id);
+            dJSONData.tourData.SetValue(tour, index);
+
+            saveOnDisk();
         }
     }
 }

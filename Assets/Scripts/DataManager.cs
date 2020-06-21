@@ -1,6 +1,5 @@
 ﻿using DataProvider;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum CheckIdType { login, tour, package };
@@ -132,6 +131,7 @@ public class DataManager : MonoBehaviour
         int packageIndex = Array.FindIndex(currentTour.ssccs, it => it.code == currentPackage.code);
         currentTour.ssccs[packageIndex] = currentPackage;
         currentPackage = null;
+        data.UpdateTour(currentTour);
     }
 
     public bool ReportCurrentPackage(PackageReportCode reportCode)
@@ -142,11 +142,12 @@ public class DataManager : MonoBehaviour
 
     public bool ReportPackage(string PackageCode, PackageReportCode reportCode)
     {
-        int packageIndex = Array.FindIndex(currentTour.ssccs, it => it.code == PackageCode); 
-        
+        int packageIndex = Array.FindIndex(currentTour.ssccs, it => it.code == PackageCode);
+
         if (packageIndex != -1)
         {
             currentTour.ssccs[packageIndex].SSCCStatus = (int)reportCode;
+            data.UpdateTour(currentTour);
             return true;
         }
         else
