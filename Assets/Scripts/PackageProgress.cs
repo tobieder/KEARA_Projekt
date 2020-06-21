@@ -23,6 +23,11 @@ public class PackageProgress : MonoBehaviour
         UpdateProgressBar();
     }
 
+    private void OnEnable()
+    {
+        UpdateProgressBar();
+    }
+
     public void UpdateProgressBar()
     {
         int finished = 0;

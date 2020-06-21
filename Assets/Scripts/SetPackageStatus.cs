@@ -10,7 +10,9 @@ public class SetPackageStatus : MonoBehaviour
     public PackageReportCode packageStatus;
 
     [SerializeField]
-    private PackageProgress packageProgress;
+    private PackageProgress packageProgressExtended;
+    [SerializeField]
+    private PackageProgress packageProgressContracted;
 
     private DataManager manager;
 
@@ -24,6 +26,7 @@ public class SetPackageStatus : MonoBehaviour
         manager.currentPackage.SSCCStatus = (int)packageStatus;
 
         packageListcontrol.UpdateList();
-        packageProgress.UpdateProgressBar();
+        packageProgressExtended.UpdateProgressBar();
+        packageProgressContracted.UpdateProgressBar();
     }
 }
