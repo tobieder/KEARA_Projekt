@@ -70,8 +70,6 @@ public class PackageListControl : MonoBehaviour
 
             packageButtons.Add(button);
         }
-
-        Debug.Log(packageButtons.Count);
     }
 
     void RemoveList()
@@ -82,7 +80,5 @@ public class PackageListControl : MonoBehaviour
         }
 
         packageButtons.Clear();
-
-        Debug.Log(packageButtons.Count);
     }
 }

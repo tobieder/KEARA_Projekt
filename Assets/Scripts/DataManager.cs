@@ -116,7 +116,7 @@ public class DataManager : MonoBehaviour
 
         if (currentPackage != null)
         {
-            Debug.Log("Package scanned: " + packageCode);
+            //Debug.Log("Package scanned: " + packageCode);
             return currentPackage;
         }
         else

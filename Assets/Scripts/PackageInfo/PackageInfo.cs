@@ -10,25 +10,22 @@ public class PackageInfo : MonoBehaviour
 {
     public TextMeshProUGUI packageTitle;
     public TextMeshProUGUI packageInfo;
-    public string packageCode = "400000000000400006";
 
     private string[] PackageStatusName = new string[] { "No status", "Scanned successfully", "Package is missing", "Package is damaged", "Barcode is missing" };
-    
-    void Start()
+
+    private void OnEnable()
     {
-        if (!String.IsNullOrEmpty(packageCode))
-        {
-            ShowPackageInfo(packageCode);
-        }
+        ShowPackageInfo();
     }
 
-    public void ShowPackageInfo(string packageCode)
+    public void ShowPackageInfo()
     {
         ////////////// for testing //////////////
-        DataManager.Instance.setCurrentTour(172839);
+        //DataManager.Instance.setCurrentTour(139149);
+        //PackageData package = DataManager.Instance.getPackage("400000000000400004");
         /////////////////////////////////////////
 
-        PackageData package = DataManager.Instance.getPackage(packageCode);
+        PackageData package = DataManager.Instance.currentPackage;
 
         string infoString = "";
 
@@ -38,11 +35,11 @@ public class PackageInfo : MonoBehaviour
             packageTitle.text = "[ " + lane + " ]";
 
 
-            int packageIndex = Array.FindIndex(DataManager.Instance.currentTour.ssccs, it => it.code == packageCode) + 1;
+            int packageIndex = Array.FindIndex(DataManager.Instance.currentTour.ssccs, it => it.code == DataManager.Instance.currentPackage.code) + 1;
             int tourPackagesCount = DataManager.Instance.currentTour.ssccs.Length;
             infoString += "Package: " + packageIndex.ToString() + "/" + tourPackagesCount.ToString() + "\n";
 
-            infoString += "Item: " + packageCode + "\n";
+            infoString += "Item: " + DataManager.Instance.currentPackage.code + "\n";
 
             infoString += "Weight: " + package.weight.ToString() + " KG\n";
 

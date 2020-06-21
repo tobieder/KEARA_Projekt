@@ -7,18 +7,15 @@ using UnityEngine.UI;
 public class PackageProgress : MonoBehaviour
 {
 
-    private DataManager manager;
-
     private int packageCount;
 
     private Slider progressBar;
 
     private void Start()
     {
-        manager = DataManager.Instance;
         progressBar = gameObject.GetComponent<Slider>();
 
-        packageCount = manager.currentTour.ssccs.Length;
+        packageCount = DataManager.Instance.currentTour.ssccs.Length;
 
         UpdateProgressBar();
     }
@@ -30,14 +27,22 @@ public class PackageProgress : MonoBehaviour
 
     public void UpdateProgressBar()
     {
+        progressBar = gameObject.GetComponent<Slider>();
         int finished = 0;
 
-        foreach (var t in manager.currentTour.ssccs)
+        if(DataManager.Instance.currentTour.ssccs != null)
         {
-            if (t.SSCCStatus == 1)
+            foreach (var t in DataManager.Instance.currentTour.ssccs)
             {
-                finished++;
+                if (t.SSCCStatus == 1)
+                {
+                    finished++;
+                }
             }
+        }
+        else
+        {
+            Debug.LogError("currentTour.sscs == null");
         }
 
         progressBar.maxValue = packageCount;
