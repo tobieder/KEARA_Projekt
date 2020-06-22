@@ -22,50 +22,59 @@ public class PackageCompletionList : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI titelText;
 
-    private DataManager manager;
-
     private int correctPackages = 0;
     private int errorPackages = 0;
     private int additionalPackages = 0;
     private int missingPackages = 0;
 
-    void Awake()
+    void Start()
     {
-        manager = DataManager.Instance;
-        manager.setCurrentTour(Int32.Parse("139149"));
+        //---------------- DEVELOPMENT OPTION -----------------
+        //DataManager.Instance.setCurrentTour(139149);
+        //-----------------------------------------------------
 
-        titelText.text = "Tour " + manager.currentTour.id;
+        titelText.text = "Tour " + DataManager.Instance.currentTour.id;
+
+        SetButtonLabels();
     }
 
     // Update is called once per frame
     void OnEnable()
     {
+        SetButtonLabels();
+    }
 
-        correctPackages = 0;
-        errorPackages = 0;
-        additionalPackages = 0;
-        missingPackages = 0;
-        foreach (var t in manager.currentTour.ssccs)
+    void SetButtonLabels()
+    {
+        if(DataManager.Instance.currentTour.ssccs != null)
         {
-            switch(t.SSCCStatus)
+            correctPackages = 0;
+            errorPackages = 0;
+            additionalPackages = 0;
+            missingPackages = 0;
+            foreach (var t in DataManager.Instance.currentTour.ssccs)
             {
-                case 0:
-                    missingPackages++;
-                    break;
-                case 1:
-                    correctPackages++;
-                    break;
-                case 2:
-                    errorPackages++;
-                    break;
-                case 3:
-                    additionalPackages++;
-                    break;
+                switch (t.SSCCStatus)
+                {
+                    case 0:
+                        missingPackages++;
+                        break;
+                    case 1:
+                        correctPackages++;
+                        break;
+                    case 2:
+                        errorPackages++;
+                        break;
+                    case 3:
+                        additionalPackages++;
+                        break;
+                }
             }
+            correctText.text = correctPackages.ToString();
+            errorText.text = errorPackages.ToString();
+            missingText.text = missingPackages.ToString();
+            additionalText.text = additionalPackages.ToString();
         }
-        correctText.text = correctPackages.ToString();
-        errorText.text = errorPackages.ToString();
-        missingText.text = missingPackages.ToString();
-        additionalText.text = additionalPackages.ToString();
+
     }
 }

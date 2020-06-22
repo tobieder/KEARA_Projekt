@@ -18,8 +18,6 @@ public class PartialPackageListControl : MonoBehaviour
 
     List<PackageData> tourPackages;
 
-    private DataManager manager;
-
     private List<GameObject> packageButtons;
 
     public GameObject currentUI;
@@ -27,29 +25,34 @@ public class PartialPackageListControl : MonoBehaviour
 
     private void Start()
     {
-        manager = DataManager.Instance;
-        packageButtons = new List<GameObject>();
+        //packageButtons = new List<GameObject>();
     }
 
-    // Update is called once per frame
     void OnEnable()
     {
+        if (packageButtons == null)
+        {
+            packageButtons = new List<GameObject>();
+        }
+
+        RemoveList();
+
         switch (packageMode)
         {
             case 0:
-                titel.text = "Missing of Tour: " + manager.currentTour.id;
+                titel.text = "Missing of Tour: " + DataManager.Instance.currentTour.id;
                 break;
             case 1:
-                titel.text = "Correct of Tour: " + manager.currentTour.id;
+                titel.text = "Correct of Tour: " + DataManager.Instance.currentTour.id;
                 break;
             case 2:
-                titel.text = "Errors of Tour: " + manager.currentTour.id;
+                titel.text = "Errors of Tour: " + DataManager.Instance.currentTour.id;
                 break;
             case 3:
-                titel.text = "Added of Tour: " + manager.currentTour.id;
+                titel.text = "Added of Tour: " + DataManager.Instance.currentTour.id;
                 break;
         }
-        foreach (var t in manager.currentTour.ssccs)
+        foreach (var t in DataManager.Instance.currentTour.ssccs)
         {
             if(t.SSCCStatus == packageMode)
             {
@@ -67,18 +70,24 @@ public class PartialPackageListControl : MonoBehaviour
                 packageButtons.Add(button);
             }
         }
+
+        Debug.Log(packageButtons.Count);
     }
 
     void OnDisable()
     {
+        RemoveList();
+    }
+
+    void RemoveList()
+    {
         foreach (GameObject go in packageButtons)
         {
+            Debug.Log("Removelist");
             Destroy(go);
         }
 
         packageButtons.Clear();
-
-        Debug.Log(packageButtons.Count);
     }
 
     public void SetPackageMode(int mode)

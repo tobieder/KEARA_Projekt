@@ -1099,7 +1099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &44051515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13524,7 +13524,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.50006104, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -459.8, y: -598.4}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &513861098
 MonoBehaviour:
@@ -48810,7 +48810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1542027300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49228,7 +49228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3157edd1ec0f1bd4da74ed482764aab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: bcf1287f0acb9c44d96eb8a57db8811c, type: 2}
+  data: {fileID: 11400000, guid: df33f4cbceab0884c8335716f90b70fa, type: 2}
   currentEmployee:
     name: 
     id: 
@@ -56068,7 +56068,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -66745,7 +66745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   packageListcontrol: {fileID: 1436080366}
   packageStatus: 1
-  packageProgress: {fileID: 2056154700}
+  packageProgressExtended: {fileID: 0}
+  packageProgressContracted: {fileID: 0}
 --- !u!1 &2019149919
 GameObject:
   m_ObjectHideFlags: 0
