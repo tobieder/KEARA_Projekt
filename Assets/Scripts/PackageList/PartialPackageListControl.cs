@@ -28,7 +28,30 @@ public class PartialPackageListControl : MonoBehaviour
         //packageButtons = new List<GameObject>();
     }
 
-    void OnEnable()
+    void OnDisable()
+    {
+        RemoveList();
+    }
+
+    void RemoveList()
+    {
+        foreach (GameObject go in packageButtons)
+        {
+            Debug.Log("Removelist");
+            Destroy(go);
+        }
+
+        packageButtons.Clear();
+    }
+
+    public void SetPackageMode(int mode)
+    {
+        packageMode = mode;
+
+        CreateList();
+    }
+
+    public void CreateList()
     {
         if (packageButtons == null)
         {
@@ -54,7 +77,7 @@ public class PartialPackageListControl : MonoBehaviour
         }
         foreach (var t in DataManager.Instance.currentTour.ssccs)
         {
-            if(t.SSCCStatus == packageMode)
+            if (t.SSCCStatus == packageMode)
             {
                 GameObject button = Instantiate(buttonTemplate) as GameObject;
                 button.SetActive(true);
@@ -71,27 +94,6 @@ public class PartialPackageListControl : MonoBehaviour
             }
         }
 
-        Debug.Log(packageButtons.Count);
-    }
-
-    void OnDisable()
-    {
-        RemoveList();
-    }
-
-    void RemoveList()
-    {
-        foreach (GameObject go in packageButtons)
-        {
-            Debug.Log("Removelist");
-            Destroy(go);
-        }
-
-        packageButtons.Clear();
-    }
-
-    public void SetPackageMode(int mode)
-    {
-        packageMode = mode;
+        Debug.Log(packageMode);
     }
 }
