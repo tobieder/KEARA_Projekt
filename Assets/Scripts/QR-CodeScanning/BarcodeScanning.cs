@@ -39,14 +39,17 @@ public class BarcodeScanning : MonoBehaviour
 
     void Awake()
     {
-        scanArea = transform.GetComponent<Image>();
-        screenRect = new Rect(0, 0, Screen.width, Screen.height);
-        gameManager = GameObject.FindGameObjectWithTag("Manager");
-        manager = DataManager.Instance;
-        wCamTexture = gameManager.GetComponent<Webcam>().GetWebCamTexture();
-        if (wCamTexture != null)
+        if (gameObject.GetComponent<BarcodeScanning>().enabled)
         {
-            wCamTexture.Play();
+            scanArea = transform.GetComponent<Image>();
+            screenRect = new Rect(0, 0, Screen.width, Screen.height);
+            gameManager = GameObject.FindGameObjectWithTag("Manager");
+            manager = DataManager.Instance;
+            wCamTexture = gameManager.GetComponent<Webcam>().GetWebCamTexture();
+            if (wCamTexture != null)
+            {
+                wCamTexture.Play();
+            }
         }
     }
 
