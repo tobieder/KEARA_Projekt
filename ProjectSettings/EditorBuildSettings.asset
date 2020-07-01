@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/HoloLensScene.unity
+    path: Assets/Scenes/VideoScene.unity
     guid: 31b9248a8bb5f2a43b575d0395255dcf
   m_configObjects: {}
