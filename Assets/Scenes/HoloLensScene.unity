@@ -985,7 +985,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addingNew: 0
   sDatatype: 0
-  employeeInformation: {fileID: 973136442}
   nextUI: {fileID: 2009927359}
   ErrorUI: {fileID: 255008163}
 --- !u!114 &55667619
@@ -11329,7 +11328,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberInput: {fileID: 1841327554}
-  employeeInformation: {fileID: 0}
   nextUI: {fileID: 2007787267}
   errorUI: {fileID: 0}
   type: 1
@@ -12004,6 +12002,7 @@ MonoBehaviour:
   - {fileID: 1542027299}
   - {fileID: 1826114630}
   - {fileID: 1209934500}
+  employeeInformation: {fileID: 973136442}
 --- !u!1 &381935018
 GameObject:
   m_ObjectHideFlags: 0
@@ -16333,17 +16332,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2009927359}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 2027918138}
         m_MethodName: SetActive
         m_Mode: 6
@@ -16354,6 +16342,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2009927359}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!222 &518467004
 CanvasRenderer:
@@ -23785,7 +23784,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberInput: {fileID: 1325380677}
-  employeeInformation: {fileID: 973136442}
   nextUI: {fileID: 2009927359}
   errorUI: {fileID: 447180477}
   type: 0
@@ -25460,7 +25458,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addingNew: 0
   sDatatype: 2
-  employeeInformation: {fileID: 0}
   nextUI: {fileID: 290354016}
   ErrorUI: {fileID: 0}
 --- !u!114 &772350686
@@ -31658,7 +31655,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addingNew: 0
   sDatatype: 1
-  employeeInformation: {fileID: 0}
   nextUI: {fileID: 2007787267}
   ErrorUI: {fileID: 0}
 --- !u!114 &948314194
@@ -33562,7 +33558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberInput: {fileID: 1909008845}
-  employeeInformation: {fileID: 0}
   nextUI: {fileID: 1542027299}
   errorUI: {fileID: 490298915}
   type: 1
@@ -34036,7 +34031,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberInput: {fileID: 1661395951}
-  employeeInformation: {fileID: 0}
   nextUI: {fileID: 290354016}
   errorUI: {fileID: 0}
   type: 1
@@ -40658,7 +40652,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberInput: {fileID: 503332137}
-  employeeInformation: {fileID: 0}
   nextUI: {fileID: 408044552}
   errorUI: {fileID: 0}
   type: 2
@@ -67318,7 +67311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addingNew: 0
   sDatatype: 1
-  employeeInformation: {fileID: 0}
   nextUI: {fileID: 1542027299}
   ErrorUI: {fileID: 1893207624}
 --- !u!114 &1854389110
@@ -69242,7 +69234,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addingNew: 0
   sDatatype: 2
-  employeeInformation: {fileID: 0}
   nextUI: {fileID: 408044552}
   ErrorUI: {fileID: 0}
 --- !u!114 &1904216107
