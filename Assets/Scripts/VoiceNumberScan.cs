@@ -1,5 +1,4 @@
-﻿using DataProvider;
-using Microsoft.MixedReality.Toolkit;
+﻿using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.Input;
 using System;
 using System.Collections;
@@ -11,7 +10,6 @@ using UnityEngine.UI;
 public class VoiceNumberScan : MonoBehaviour, IMixedRealityDictationHandler
 {
     public TextMeshProUGUI numberInput;
-    public TextMeshProUGUI employeeInformation;
     public GameObject nextUI;
     public GameObject errorUI;
     public CheckIdType type;
@@ -78,12 +76,6 @@ public class VoiceNumberScan : MonoBehaviour, IMixedRealityDictationHandler
             button.interactable = true;
         }
 
-        if(DataManager.Instance.CheckID(number, type, transform.parent.gameObject, nextUI, errorUI))
-        {
-            if (type == CheckIdType.login)
-            {
-                employeeInformation.text = DataManager.Instance.currentEmployee.name + "\n" + DataManager.Instance.currentEmployee.id;
-            }
-        }
+        DataManager.Instance.CheckID(number, type, transform.parent.gameObject, nextUI, errorUI);
     }
 }

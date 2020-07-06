@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
 using ZXing.QrCode;
-using DataProvider;
-using Boo.Lang;
-using System.Collections.Generic;
-using TMPro;
 
 public class BarcodeScanning : MonoBehaviour
 {
@@ -18,8 +13,6 @@ public class BarcodeScanning : MonoBehaviour
 
     private WebCamTexture wCamTexture;
     private Rect screenRect;
-
-    public TextMeshProUGUI employeeInformation;
 
     private DataManager manager;
 
@@ -84,7 +77,7 @@ public class BarcodeScanning : MonoBehaviour
         {
             try
             {
-                if(!wCamTexture.isPlaying)
+                if (!wCamTexture.isPlaying)
                 {
                     wCamTexture.Play();
                 }
@@ -99,17 +92,13 @@ public class BarcodeScanning : MonoBehaviour
                 if (result != null)
                 {
                     Debug.Log("DECODED TEXT FROM QR: " + result.Text);
-                    if(addingNew)
+                    if (addingNew)
                     {
 
                     }
-                    else if(manager.CheckID(result.Text, sDatatype, transform.parent.gameObject, nextUI, ErrorUI))
+                    else if (manager.CheckID(result.Text, sDatatype, transform.parent.gameObject, nextUI, ErrorUI))
                     {
                         wCamTexture.Stop();
-                        if (sDatatype == CheckIdType.login)
-                        {
-                            employeeInformation.text = DataManager.Instance.currentEmployee.name + "\n" + DataManager.Instance.currentEmployee.id;
-                        }
                     }
 
                 }

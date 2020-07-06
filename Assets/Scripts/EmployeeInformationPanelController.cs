@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EmployeeInformationPanelController : MonoBehaviour
 {
@@ -10,17 +8,19 @@ public class EmployeeInformationPanelController : MonoBehaviour
 
     private void OnEnable()
     {
-        if(useOnEnable)
+        if (useOnEnable)
         {
+            Debug.Log("EIPC enabled");
             EmployeePanel.SetActive(true);
         }
     }
 
     private void OnDisable()
     {
-        Debug.Log("EIPC disabled");
-        if(useOnDisable)
+
+        if (useOnDisable)
         {
+            Debug.Log("EIPC disabled");
             EmployeePanel.SetActive(false);
         }
     }
